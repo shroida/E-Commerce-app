@@ -14,6 +14,22 @@ class RegisterForm extends StatefulWidget {
 }
 
 class _RegisterFormState extends State<RegisterForm> {
+  bool isPasswordObscureText = true;
+  bool isPasswordConfirmationObscureText = true;
+
+  bool hasLowercase = false;
+  bool hasUppercase = false;
+  bool hasSpecialCharacters = false;
+  bool hasNumber = false;
+  bool hasMinLength = false;
+  late TextEditingController passwordController;
+  @override
+  void initState() {
+    super.initState();
+    passwordController = context.read<SignupCubit>().passwordController;
+    // setupPasswordControllerListener();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -22,6 +38,7 @@ class _RegisterFormState extends State<RegisterForm> {
       children: [
         AppTextFormField(
           hintText: 'Email',
+          controller: context.read<SignupCubit>().emailController,
           validator: (value) {
             if (value == null ||
                 value.isEmpty ||
@@ -35,11 +52,49 @@ class _RegisterFormState extends State<RegisterForm> {
         ),
         AppTextFormField(
           hintText: 'Password',
+          controller: context.read<SignupCubit>().passwordController,
+          isObscureText: isPasswordObscureText,
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                isPasswordObscureText = !isPasswordObscureText;
+              });
+            },
+            child: Icon(
+              isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
+            ),
+          ),
           validator: (value) {
             if (value == null ||
                 value.isEmpty ||
                 !AppRegex.isEmailValid(value)) {
               return 'Please enter a valid Email number';
+            }
+          },
+        ),
+        const SizedBox(
+          height: 18,
+        ),
+        AppTextFormField(
+          controller: context.read<SignupCubit>().confirmPasswordController,
+          hintText: 'Password Confirmation',
+          isObscureText: isPasswordConfirmationObscureText,
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                isPasswordConfirmationObscureText =
+                    !isPasswordConfirmationObscureText;
+              });
+            },
+            child: Icon(
+              isPasswordConfirmationObscureText
+                  ? Icons.visibility_off
+                  : Icons.visibility,
+            ),
+          ),
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter a valid password';
             }
           },
         ),
