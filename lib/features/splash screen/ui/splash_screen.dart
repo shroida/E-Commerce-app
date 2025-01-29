@@ -13,10 +13,10 @@ class SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => const NextScreen()),
-      // );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const NextScreen()),
+      );
     });
   }
 
@@ -36,7 +36,7 @@ class SplashScreenState extends State<SplashScreen> {
                 TypewriterAnimatedText(
                   'DocOnTime',
                   textStyle: const TextStyle(
-                    color: ColorsManager.darkBlue,
+                    // color: ColorsManager.darkBlue,
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                   ),
