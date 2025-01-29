@@ -10,4 +10,6 @@ class AppStyles {
       fontSize: 16, fontWeight: FontWeight.w400, color: ColorsManager.grayText);
   static TextStyle black16SemiBold = const TextStyle(
       fontSize: 16, fontWeight: FontWeight.w700, color: ColorsManager.textColorPrimary);
+  static TextStyle accent13SemiBold = const TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w700, color: ColorsManager.accentColor);
 }
