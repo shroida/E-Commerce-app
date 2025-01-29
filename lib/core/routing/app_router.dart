@@ -4,14 +4,14 @@ import 'package:e_commerce_app/features/login/ui/login_screen.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
-  static final router = GoRouter(
+  final router = GoRouter(
     routes: [
       GoRoute(
         path: Routes.home,
         builder: (context, state) => const HomeScreen(),
       ),
       GoRoute(
-        path:Routes.loginScreen,
+        path: Routes.loginScreen,
         builder: (context, state) => const LoginScreen(),
       ),
       // GoRoute(
@@ -20,6 +20,6 @@ class AppRouter {
       // ),
       // Add more routes here as needed
     ],
-    initialLocation:  Routes.splashScreen,
+    initialLocation: Routes.splashScreen,
   );
 }
