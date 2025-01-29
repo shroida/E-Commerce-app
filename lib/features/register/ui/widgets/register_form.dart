@@ -19,19 +19,28 @@ class _RegisterFormState extends State<RegisterForm> {
   bool isPasswordConfirmationObscureText = true;
 
   bool hasLowercase = false;
+  bool isConfirmMatch = false;
   bool hasUppercase = false;
   bool hasSpecialCharacters = false;
   bool hasNumber = false;
   bool hasMinLength = false;
+
   late TextEditingController passwordController;
+  late TextEditingController confirmPasswordController;
+
   @override
   void initState() {
     super.initState();
     passwordController = context.read<SignupCubit>().passwordController;
-    setupPasswordControllerListener();
+    confirmPasswordController =
+        context.read<SignupCubit>().confirmPasswordController;
+
+    // Set up listeners for both controllers
+    setupPasswordControllerListeners();
   }
 
-  void setupPasswordControllerListener() {
+  void setupPasswordControllerListeners() {
+    // Listen to changes in passwordController
     passwordController.addListener(() {
       setState(() {
         hasLowercase = AppRegex.hasLowerCase(passwordController.text);
@@ -40,6 +49,18 @@ class _RegisterFormState extends State<RegisterForm> {
             AppRegex.hasSpecialCharacter(passwordController.text);
         hasNumber = AppRegex.hasNumber(passwordController.text);
         hasMinLength = AppRegex.hasMinLength(passwordController.text);
+        // Compare the passwords for confirmation match
+        isConfirmMatch =
+            passwordController.text == confirmPasswordController.text;
+      });
+    });
+
+    // Listen to changes in confirmPasswordController
+    confirmPasswordController.addListener(() {
+      setState(() {
+        // Compare passwords whenever confirmPassword changes
+        isConfirmMatch =
+            passwordController.text == confirmPasswordController.text;
       });
     });
   }
@@ -47,82 +68,85 @@ class _RegisterFormState extends State<RegisterForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-        child: Column(
-      key: context.read<SignupCubit>().formKey,
-      children: [
-        AppTextFormField(
-          hintText: 'Email',
-          controller: context.read<SignupCubit>().emailController,
-          validator: (value) {
-            if (value == null ||
-                value.isEmpty ||
-                !AppRegex.isEmailValid(value)) {
-              return 'Please enter a valid Email number';
-            }
-          },
-        ),
-        const SizedBox(
-          height: 18,
-        ),
-        AppTextFormField(
-          hintText: 'Password',
-          controller: context.read<SignupCubit>().passwordController,
-          isObscureText: isPasswordObscureText,
-          suffixIcon: GestureDetector(
-            onTap: () {
-              setState(() {
-                isPasswordObscureText = !isPasswordObscureText;
-              });
+      child: Column(
+        key: context.read<SignupCubit>().formKey,
+        children: [
+          AppTextFormField(
+            hintText: 'Email',
+            controller: context.read<SignupCubit>().emailController,
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isEmailValid(value)) {
+                return 'Please enter a valid Email number';
+              }
             },
-            child: Icon(
-              isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
-            ),
           ),
-          validator: (value) {
-            if (value == null ||
-                value.isEmpty ||
-                !AppRegex.isEmailValid(value)) {
-              return 'Please enter a valid Email number';
-            }
-          },
-        ),
-        const SizedBox(
-          height: 18,
-        ),
-        AppTextFormField(
-          controller: context.read<SignupCubit>().confirmPasswordController,
-          hintText: 'Password Confirmation',
-          isObscureText: isPasswordConfirmationObscureText,
-          suffixIcon: GestureDetector(
-            onTap: () {
-              setState(() {
-                isPasswordConfirmationObscureText =
-                    !isPasswordConfirmationObscureText;
-              });
+          const SizedBox(height: 18),
+          AppTextFormField(
+            hintText: 'Password',
+            controller: passwordController,
+            isObscureText: isPasswordObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isPasswordObscureText = !isPasswordObscureText;
+                });
+              },
+              child: Icon(
+                isPasswordObscureText ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isEmailValid(value)) {
+                return 'Please enter a valid Email number';
+              }
             },
-            child: Icon(
-              isPasswordConfirmationObscureText
-                  ? Icons.visibility_off
-                  : Icons.visibility,
-            ),
           ),
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter a valid password';
-            }
-          },
-        ),
-        const SizedBox(
-          height: 18,
-        ),
-        PasswordValidations(
-          hasLowerCase: hasLowercase,
-          hasMinLength: hasMinLength,
-          hasNumber: hasNumber,
-          hasSpecialCharacters: hasSpecialCharacters,
-          hasUpperCase: hasUppercase,
-        )
-      ],
-    ));
+          const SizedBox(height: 18),
+          AppTextFormField(
+            controller: confirmPasswordController,
+            hintText: 'Password Confirmation',
+            isObscureText: isPasswordConfirmationObscureText,
+            suffixIcon: GestureDetector(
+              onTap: () {
+                setState(() {
+                  isPasswordConfirmationObscureText =
+                      !isPasswordConfirmationObscureText;
+                });
+              },
+              child: Icon(
+                isPasswordConfirmationObscureText
+                    ? Icons.visibility_off
+                    : Icons.visibility,
+              ),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid password';
+              }
+            },
+          ),
+          const SizedBox(height: 18),
+          PasswordValidations(
+            hasLowerCase: hasLowercase,
+            hasMinLength: hasMinLength,
+            hasNumber: hasNumber,
+            hasSpecialCharacters: hasSpecialCharacters,
+            hasUpperCase: hasUppercase,
+            isConfirmMatch: isConfirmMatch,
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
   }
 }

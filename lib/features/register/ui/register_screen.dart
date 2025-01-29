@@ -18,15 +18,17 @@ class RegisterScreenState extends State<RegisterScreen> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextRegister(),
-              SizedBox(
-                height: 20,
-              ),
-              RegisterForm()
-            ],
+          child: const SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextRegister(),
+                SizedBox(
+                  height: 20,
+                ),
+                RegisterForm()
+              ],
+            ),
           ),
         ),
       ),
