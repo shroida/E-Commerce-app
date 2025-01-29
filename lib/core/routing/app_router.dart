@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/splash%20screen/ui/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
