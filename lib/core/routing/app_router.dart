@@ -1,4 +1,6 @@
 import 'package:e_commerce_app/core/routing/routes.dart';
+import 'package:e_commerce_app/features/home/ui/home_screen.dart';
+import 'package:e_commerce_app/features/login/ui/login_screen.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
@@ -6,16 +8,16 @@ class AppRouter {
     routes: [
       GoRoute(
         path: Routes.home,
-        pageBuilder: (context, state) => HomePage(),
+        builder: (context, state) => const HomeScreen(),
       ),
       GoRoute(
         path:Routes.loginScreen,
-        pageBuilder: (context, state) => ProductsPage(),
+        builder: (context, state) => const LoginScreen(),
       ),
-      GoRoute(
-        path: Routes.registerScreen,
-        pageBuilder: (context, state) => CartPage(),
-      ),
+      // GoRoute(
+      //   path: Routes.registerScreen,
+      //   builder: (context, state) => CartPage(),
+      // ),
       // Add more routes here as needed
     ],
     initialLocation:  Routes.splashScreen,
