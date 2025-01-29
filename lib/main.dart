@@ -5,5 +5,7 @@ import 'package:flutter/material.dart';
 void main() {
   final appRouter = AppRouter();
 
-  runApp(StoreApp( appRouter: appRouter.router, ));
+  runApp(StoreApp(
+    appRouter: appRouter.router,
+  ));
 }
