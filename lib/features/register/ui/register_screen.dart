@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/theming/app_styles.dart';
+import 'package:e_commerce_app/features/register/ui/widgets/text_register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,9 +17,11 @@ class RegisterScreenState extends State<RegisterScreen> {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
-          child: Column(
+          child: const Column(
             children: [
               TextRegister(),
+              SizedBox(height: 20,)
+              
             ],
           ),
         ),
