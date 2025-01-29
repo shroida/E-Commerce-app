@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.0.0
   flutter_screenutil: ^5.9.3
   freezed: ^2.5.7
   freezed_annotation: ^2.4.4

@@ -1,6 +1,8 @@
 import 'package:e_commerce_app/core/helper/app_regex.dart';
 import 'package:e_commerce_app/core/widgets/app_text_form_field.dart';
+import 'package:e_commerce_app/features/register/logic/signup_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterForm extends StatefulWidget {
   const RegisterForm({
@@ -16,7 +18,7 @@ class _RegisterFormState extends State<RegisterForm> {
   Widget build(BuildContext context) {
     return Form(
         child: Column(
-      key: formKey,
+      key: context.read<SignupCubit>().formKey,
       children: [
         AppTextFormField(
           hintText: 'Email',
