@@ -1,4 +1,6 @@
+import 'package:e_commerce_app/core/theming/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -10,21 +12,16 @@ class RegisterScreen extends StatefulWidget {
 class RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          Column(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
+          child: Column(
             children: [
-              Text(
-                'Sign Up',
-                style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
+              TextRegister(),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
