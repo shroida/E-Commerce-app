@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/core/theming/app_styles.dart';
+import 'package:e_commerce_app/core/theming/colors_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -39,7 +41,7 @@ class AppTextFormField extends StatelessWidget {
         focusedBorder: focusedBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
-                color: ColorsManager.mainBlue,
+                color: ColorsManager.secondaryColor,
                 width: 1.3,
               ),
               borderRadius: BorderRadius.circular(16.0),
@@ -47,7 +49,7 @@ class AppTextFormField extends StatelessWidget {
         enabledBorder: enabledBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
-                color: ColorsManager.lighterGray,
+                color: ColorsManager.borderColor,
                 width: 1.3,
               ),
               borderRadius: BorderRadius.circular(16.0),
@@ -66,14 +68,14 @@ class AppTextFormField extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(16.0),
         ),
-        hintStyle: hintStyle ?? AppStyles.font14LightGrayRegular,
+        hintStyle: hintStyle ?? AppStyles.gray16Medium,
         hintText: hintText,
         suffixIcon: suffixIcon,
-        fillColor: backgroundColor ?? ColorsManager.moreLightGray,
+        fillColor: backgroundColor ?? ColorsManager.backgroundColor,
         filled: true,
       ),
       obscureText: isObscureText ?? false,
-      style: AppStyles.font14DarkBlueMedium,
+      style: AppStyles.black16SemiBold,
       validator: (value) {
         return validator(value);
       },

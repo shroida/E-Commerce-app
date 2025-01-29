@@ -12,7 +12,7 @@ class TextRegister extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Sign Up', style: AppStyles.black32Bold),
-        Text('Please enter your details', style: AppStyles.grey18SemiBold),
+        Text('Please enter your details', style: AppStyles.grey16SemiBold),
       ],
     );
   }
