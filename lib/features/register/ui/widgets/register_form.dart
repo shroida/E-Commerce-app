@@ -155,7 +155,7 @@ class _RegisterFormState extends State<RegisterForm> {
             },
           ),
           const SizedBox(height: 18),
-          AlreadyHaveAccountText(),
+          const AlreadyHaveAccountText(),
           const SizedBox(height: 10),
           PasswordValidations(
             hasLowerCase: hasLowercase,

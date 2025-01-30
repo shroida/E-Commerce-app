@@ -18,7 +18,7 @@ class LoginResponse {
 
 @JsonSerializable()
 class UserData {
-  int id;
+  int? id;
   String name;
   String email;
   String phone;
