@@ -12,6 +12,7 @@ class _ApiService implements ApiService {
   _ApiService(
     this._dio, {
     this.baseUrl,
+    this.errorLogger,
   }) {
     baseUrl ??= 'https://student.valuxapps.com/api/';
   }
@@ -19,6 +20,8 @@ class _ApiService implements ApiService {
   final Dio _dio;
 
   String? baseUrl;
+
+  final ParseErrorLogger? errorLogger;
 
   @override
   Future<SignupResponse> signup(SignupRequest signupRequest) async {
@@ -47,7 +50,8 @@ class _ApiService implements ApiService {
     late SignupResponse _value;
     try {
       _value = SignupResponse.fromJson(_result.data!);
-    } on Object {
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;
