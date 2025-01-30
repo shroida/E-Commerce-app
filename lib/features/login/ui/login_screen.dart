@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/login/ui/widgets/login_form.dart';
 import 'package:e_commerce_app/features/login/ui/widgets/text_login.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,14 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
-        child: Column(
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextLogin(),
+            SizedBox(
+              height: 20,
+            ),
+            LoginForm(),
           ],
         ),
       )),
