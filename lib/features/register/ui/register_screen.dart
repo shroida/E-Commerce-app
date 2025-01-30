@@ -51,7 +51,7 @@ class RegisterScreenState extends State<RegisterScreen> {
 
   void validateThenDoLogin(BuildContext context) {
     if (context.read<SignupCubit>().formKey.currentState!.validate()) {
-      context.read<SignupCubit>().emitSignupStates();
+      context.read<SignupCubit>().emitSignupStates(context);
     }
   }
 }

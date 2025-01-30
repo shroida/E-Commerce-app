@@ -23,7 +23,7 @@ class UserData {
   String name;
   String email;
   String phone;
-  String id;
+  int? id;
   String image;
   String token;
   UserData({

@@ -26,7 +26,7 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       name: json['name'] as String,
       email: json['email'] as String,
       phone: json['phone'] as String,
-      id: json['id'] as String,
+      id: (json['id'] as num?)?.toInt(),
       image: json['image'] as String,
       token: json['token'] as String,
     );
