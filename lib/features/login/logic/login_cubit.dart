@@ -1,9 +1,11 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:e_commerce_app/features/login/data/models/login_request.dart';
 import 'package:e_commerce_app/features/login/data/repos/login_repo.dart';
 import 'package:e_commerce_app/features/login/logic/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo _loginRepo;
@@ -32,11 +34,13 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginState.logininSuccess(loginResponse));
       _showDialog(
         context,
+        isSuccess: isSuccess,
         title: isSuccess ? 'Success' : 'Failure',
         desc: message,
         dialogType: isSuccess ? DialogType.success : DialogType.warning,
         color: isSuccess ? Colors.green : Colors.orange,
       );
+
       if (isSuccess) _clearForm();
     }, failure: (error) {
       emit(LoginState.logininFailure(error.toString()));
@@ -51,6 +55,7 @@ class LoginCubit extends Cubit<LoginState> {
   void _showDialog(BuildContext context,
       {required String title,
       required String desc,
+      required bool isSuccess,
       required DialogType dialogType,
       required Color color}) {
     AwesomeDialog(
@@ -59,7 +64,9 @@ class LoginCubit extends Cubit<LoginState> {
       animType: AnimType.bottomSlide,
       title: title,
       desc: desc,
-      btnOkOnPress: () {},
+      btnOkOnPress: () {
+        isSuccess ? context.pushReplacement(Routes.home) : context.pop();
+      },
       btnOkColor: color,
     ).show();
   }
