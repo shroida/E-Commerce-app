@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/di/dependency_injection.dart';
 import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:e_commerce_app/features/home/ui/home_screen.dart';
 import 'package:e_commerce_app/features/login/ui/login_screen.dart';
@@ -25,7 +26,7 @@ class AppRouter {
       GoRoute(
         path: Routes.registerScreen,
         builder: (context, state) => BlocProvider(
-          create: (context) => SignupCubit(),
+          create: (context) => SignupCubit(getIt()),
           child: const RegisterScreen(),
         ),
       ),
