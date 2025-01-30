@@ -25,12 +25,12 @@ class RegisterScreenState extends State<RegisterScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextRegister(),
-                SizedBox(
+                const TextRegister(),
+                const SizedBox(
                   height: 20,
                 ),
-                RegisterForm(),
-                SizedBox(
+                const RegisterForm(),
+                const SizedBox(
                   height: 20,
                 ),
                 AppTextButton(

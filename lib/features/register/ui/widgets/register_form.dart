@@ -60,7 +60,8 @@ class _RegisterFormState extends State<RegisterForm> {
       setState(() {
         // Compare passwords whenever confirmPassword changes
         isConfirmMatch =
-            passwordController.text == confirmPasswordController.text;
+            passwordController.text == confirmPasswordController.text &&
+                passwordController.text.isNotEmpty;
       });
     });
   }

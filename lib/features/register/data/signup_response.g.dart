@@ -15,12 +15,6 @@ SignupResponse _$SignupResponseFromJson(Map<String, dynamic> json) =>
           : UserData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$SignupResponseToJson(SignupResponse instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-      'message': instance.message,
-      'data': instance.userData,
-    };
 
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       name: json['name'] as String,
@@ -31,11 +25,3 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       token: json['token'] as String,
     );
 
-Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
-      'name': instance.name,
-      'email': instance.email,
-      'phone': instance.phone,
-      'id': instance.id,
-      'image': instance.image,
-      'token': instance.token,
-    };
