@@ -6,7 +6,7 @@ import 'package:e_commerce_app/features/register/data/signup_response.dart';
 class SignupRepo {
   final ApiService _apiService;
 
-  SignupRepo({required ApiService apiService}) : _apiService = apiService;
+  SignupRepo(this._apiService);
   Future<ApiResult<SignupResponse>> signup(SignupRequest signupRequest) async {
     try {
       final response = await _apiService.signup(signupRequest);
