@@ -72,13 +72,35 @@ class _RegisterFormState extends State<RegisterForm> {
         key: context.read<SignupCubit>().formKey,
         children: [
           AppTextFormField(
+            hintText: 'name',
+            controller: context.read<SignupCubit>().nameController,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid name';
+              }
+            },
+          ),
+          const SizedBox(height: 18),
+          AppTextFormField(
+            hintText: 'phone',
+            controller: context.read<SignupCubit>().phoneController,
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isPhoneNumberValid(value)) {
+                return 'Please enter a valid phone number';
+              }
+            },
+          ),
+          const SizedBox(height: 18),
+          AppTextFormField(
             hintText: 'Email',
             controller: context.read<SignupCubit>().emailController,
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
                   !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid Email number';
+                return 'Please enter a valid Email';
               }
             },
           ),
