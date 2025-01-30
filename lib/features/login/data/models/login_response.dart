@@ -14,6 +14,7 @@ class LoginResponse {
     required this.message,
     required this.userData,
   });
+  factory LoginResponse.fromJson(Map<String,dynamic> json) => _$LoginResponseFromJson(json);
 }
 
 @JsonSerializable()
