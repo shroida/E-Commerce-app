@@ -11,5 +11,7 @@ class AppStyles {
   static TextStyle black16SemiBold = const TextStyle(
       fontSize: 16, fontWeight: FontWeight.w700, color: ColorsManager.textColorPrimary);
   static TextStyle accent13SemiBold = const TextStyle(
-      fontSize: 16, fontWeight: FontWeight.w700, color: ColorsManager.accentColor);
+      fontSize: 13, fontWeight: FontWeight.w700, color: ColorsManager.accentColor);
+  static TextStyle white16SemiBold = const TextStyle(
+      fontSize: 16, fontWeight: FontWeight.w700, color: ColorsManager.cardColor);
 }

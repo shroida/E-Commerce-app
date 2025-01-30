@@ -20,6 +20,7 @@ class SignupCubit extends Cubit<SignupState> {
   TextEditingController confirmPasswordController = TextEditingController();
 
   void emitSignupStates() async {
+    emit(const SignupState.signuploading());
     final response = await _signupRepo.signup(SignupRequest(
         name: nameController.text,
         email: emailController.text,

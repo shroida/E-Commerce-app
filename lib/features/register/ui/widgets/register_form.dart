@@ -68,8 +68,8 @@ class _RegisterFormState extends State<RegisterForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: context.read<SignupCubit>().formKey,
       child: Column(
-        key: context.read<SignupCubit>().formKey,
         children: [
           AppTextFormField(
             hintText: 'name',
@@ -122,8 +122,8 @@ class _RegisterFormState extends State<RegisterForm> {
             validator: (value) {
               if (value == null ||
                   value.isEmpty ||
-                  !AppRegex.isEmailValid(value)) {
-                return 'Please enter a valid Email number';
+                  !AppRegex.isPasswordValid(value)) {
+                return 'Please enter a valid password ';
               }
             },
           ),
