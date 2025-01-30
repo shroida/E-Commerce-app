@@ -1,11 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:e_commerce_app/features/register/data/models/signup_request.dart';
+import 'package:e_commerce_app/features/register/data/repos/signup_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:e_commerce_app/features/register/data/signup_request.dart';
 import 'package:e_commerce_app/features/register/logic/signup_state.dart';
-import 'package:e_commerce_app/features/register/repos/signup_repo.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   final SignupRepo _signupRepo;
