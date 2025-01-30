@@ -2,6 +2,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'signup_request.g.dart';
+
 @JsonSerializable()
 class SignupRequest {
   String name;
@@ -14,4 +15,5 @@ class SignupRequest {
     required this.password,
     required this.phone,
   });
+  Map<String, dynamic> toJson() => _$SignupRequestToJson(this);
 }
