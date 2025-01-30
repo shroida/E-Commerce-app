@@ -38,7 +38,7 @@ class RegisterScreenState extends State<RegisterScreen> {
                   textStyle:
                       AppStyles.white16SemiBold.copyWith(color: Colors.white),
                   onPressed: () {
-                    validateThenDoLogin(context);
+                    validateThenDoSignup(context);
                   },
                 ),
               ],
@@ -49,7 +49,7 @@ class RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  void validateThenDoLogin(BuildContext context) {
+  void validateThenDoSignup(BuildContext context) {
     if (context.read<SignupCubit>().formKey.currentState!.validate()) {
       context.read<SignupCubit>().emitSignupStates(context);
     }

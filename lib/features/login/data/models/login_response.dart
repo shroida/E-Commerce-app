@@ -8,7 +8,7 @@ class LoginResponse {
   bool status;
   String message;
   @JsonKey(name: 'data')
-  UserData userData;
+  UserData? userData;
   LoginResponse({
     required this.status,
     required this.message,

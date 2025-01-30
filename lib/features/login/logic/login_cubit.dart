@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:e_commerce_app/features/login/data/models/login_request.dart';
 import 'package:e_commerce_app/features/login/data/repos/login_repo.dart';
 import 'package:e_commerce_app/features/login/logic/login_state.dart';
@@ -18,25 +19,48 @@ class LoginCubit extends Cubit<LoginState> {
     return super.close();
   }
 
-  void login() async {
+  void login(BuildContext context) async {
     emit(LoginState.logininLoading());
     final response = await _loginRepo.login(LoginRequest(
         email: emailController.text, password: passwordController.text));
-    try {
-      response.when(success: (loginResponse) {
-        final isSuccess = loginResponse.status;
-        emit(LoginState.logininSuccess(loginResponse));
-        if (isSuccess) _clearForm();
-      }, failure: (error) {
-        emit(LoginState.logininFailure(error.toString()));
-      });
-    } catch (e) {
-      rethrow;
-    }
+
+    response.when(success: (loginResponse) {
+      final isSuccess = loginResponse.status;
+      final message = loginResponse.message.isNotEmpty
+          ? loginResponse.message
+          : 'Login successful';
+      emit(LoginState.logininSuccess(loginResponse));
+      _showDialog(
+        context,
+        title: isSuccess ? 'Success' : 'Failure',
+        desc: message,
+        dialogType: isSuccess ? DialogType.success : DialogType.warning,
+        color: isSuccess ? Colors.green : Colors.orange,
+      );
+      if (isSuccess) _clearForm();
+    }, failure: (error) {
+      emit(LoginState.logininFailure(error.toString()));
+    });
   }
 
   void _clearForm() {
     emailController.clear();
     passwordController.clear();
+  }
+
+  void _showDialog(BuildContext context,
+      {required String title,
+      required String desc,
+      required DialogType dialogType,
+      required Color color}) {
+    AwesomeDialog(
+      context: context,
+      dialogType: dialogType,
+      animType: AnimType.bottomSlide,
+      title: title,
+      desc: desc,
+      btnOkOnPress: () {},
+      btnOkColor: color,
+    ).show();
   }
 }
