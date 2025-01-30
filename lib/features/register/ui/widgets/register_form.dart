@@ -2,6 +2,7 @@ import 'package:e_commerce_app/core/helper/app_regex.dart';
 import 'package:e_commerce_app/core/widgets/app_text_form_field.dart';
 import 'package:e_commerce_app/core/widgets/passwords_validations.dart';
 import 'package:e_commerce_app/features/register/logic/signup_cubit.dart';
+import 'package:e_commerce_app/features/register/ui/widgets/already_have_account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -71,6 +72,7 @@ class _RegisterFormState extends State<RegisterForm> {
     return Form(
       key: context.read<SignupCubit>().formKey,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppTextFormField(
             hintText: 'name',
@@ -153,6 +155,8 @@ class _RegisterFormState extends State<RegisterForm> {
             },
           ),
           const SizedBox(height: 18),
+          AlreadyHaveAccountText(),
+          const SizedBox(height: 10),
           PasswordValidations(
             hasLowerCase: hasLowercase,
             hasMinLength: hasMinLength,
