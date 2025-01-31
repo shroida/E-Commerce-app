@@ -1,11 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:e_commerce_app/features/register/data/models/signup_request.dart';
 import 'package:e_commerce_app/features/register/data/repos/signup_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:e_commerce_app/features/register/logic/signup_state.dart';
+import 'package:go_router/go_router.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   final SignupRepo _signupRepo;
@@ -41,15 +43,16 @@ class SignupCubit extends Cubit<SignupState> {
           context,
           title: isSuccess ? 'Success' : 'Failure',
           desc: message,
+          isSuccess: isSuccess,
           dialogType: isSuccess ? DialogType.success : DialogType.warning,
           color: isSuccess ? Colors.green : Colors.orange,
         );
-       
       },
       failure: (error) {
         emit(SignupState.signuperror(errorMessag: error.toString()));
         _showDialog(
           context,
+          isSuccess: false,
           title: 'Error',
           desc: error.toString(),
           dialogType: DialogType.error,
@@ -63,6 +66,7 @@ class SignupCubit extends Cubit<SignupState> {
       {required String title,
       required String desc,
       required DialogType dialogType,
+      required bool isSuccess,
       required Color color}) {
     AwesomeDialog(
       context: context,
@@ -70,10 +74,10 @@ class SignupCubit extends Cubit<SignupState> {
       animType: AnimType.bottomSlide,
       title: title,
       desc: desc,
-      btnOkOnPress: () {},
+      btnOkOnPress: () {
+        isSuccess ? context.pushReplacement(Routes.loginScreen) : null;
+      },
       btnOkColor: color,
     ).show();
   }
-
- 
 }

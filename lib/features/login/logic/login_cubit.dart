@@ -1,4 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:e_commerce_app/core/helper/constants.dart';
+import 'package:e_commerce_app/core/helper/shared_pref_helper.dart';
+import 'package:e_commerce_app/core/networking/dio_factory.dart';
 import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:e_commerce_app/features/login/data/models/login_request.dart';
 import 'package:e_commerce_app/features/login/data/repos/login_repo.dart';
@@ -26,7 +29,8 @@ class LoginCubit extends Cubit<LoginState> {
     final response = await _loginRepo.login(LoginRequest(
         email: emailController.text, password: passwordController.text));
 
-    response.when(success: (loginResponse) {
+    response.when(success: (loginResponse) async {
+      await saveUserToken(loginResponse.userData?.token ?? '');
       final isSuccess = loginResponse.status;
       final message = loginResponse.message.isNotEmpty
           ? loginResponse.message
@@ -65,9 +69,14 @@ class LoginCubit extends Cubit<LoginState> {
       title: title,
       desc: desc,
       btnOkOnPress: () {
-        isSuccess ? context.pushReplacement(Routes.home) : context.pop();
+        isSuccess ? context.pushReplacement(Routes.home) :null;
       },
       btnOkColor: color,
     ).show();
+  }
+
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }

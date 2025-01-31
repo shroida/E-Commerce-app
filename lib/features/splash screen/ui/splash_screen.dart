@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:e_commerce_app/core/routing/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:e_commerce_app/core/helper/constants.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,9 +15,11 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
-      if(mounted){
-        context.pushReplacement(Routes.registerScreen);
+    Future.delayed(const Duration(seconds: 3), () {
+      if (mounted) {
+        isLoggedInUser
+            ? context.pushReplacement(Routes.home)
+            : context.pushReplacement(Routes.registerScreen);
       }
     });
   }
