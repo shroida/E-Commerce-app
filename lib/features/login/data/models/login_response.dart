@@ -14,22 +14,26 @@ class LoginResponse {
     required this.message,
     required this.userData,
   });
-  factory LoginResponse.fromJson(Map<String,dynamic> json) => _$LoginResponseFromJson(json);
+  factory LoginResponse.fromJson(Map<String, dynamic> json) =>
+      _$LoginResponseFromJson(json);
 }
 
 @JsonSerializable()
 class UserData {
   int? id;
-  String name;
-  String email;
-  String phone;
-  String token;
+  String? name; // Change to nullable
+  String? email; // Change to nullable
+  String? phone; // Change to nullable
+  String? token; // Change to nullable
+
   UserData({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.phone,
-    required this.token,
+    this.id,
+    this.name,
+    this.email,
+    this.phone,
+    this.token,
   });
-  factory UserData.fromJson(Map<String,dynamic> json) => _$UserDataFromJson(json);
+
+  factory UserData.fromJson(Map<String, dynamic> json) =>
+      _$UserDataFromJson(json);
 }

@@ -15,7 +15,6 @@ ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) =>
           : UserData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       id: (json['id'] as num?)?.toInt(),
       name: json['name'] as String,
@@ -23,4 +22,3 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       phone: json['phone'] as String,
       token: json['token'] as String,
     );
-

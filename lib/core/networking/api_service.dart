@@ -21,7 +21,7 @@ abstract class ApiService {
     @Body() LoginRequest loginRequest,
   );
 
-  @GET(ApiConstants.userData)
+  @GET(ApiConstants.profile)
   Future<ProfileResponse> profile(
     @Header('Authorization') String token,
     @Header('lang') String lang,

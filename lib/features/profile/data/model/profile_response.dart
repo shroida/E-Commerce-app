@@ -14,7 +14,8 @@ class ProfileResponse {
     required this.message,
     required this.userData,
   });
-  factory ProfileResponse.fromJson(Map<String,dynamic> json) => _$ProfileResponseFromJson(json);
+  factory ProfileResponse.fromJson(Map<String, dynamic> json) =>
+      _$ProfileResponseFromJson(json);
 }
 
 @JsonSerializable()
@@ -31,5 +32,6 @@ class UserData {
     required this.phone,
     required this.token,
   });
-  factory UserData.fromJson(Map<String,dynamic> json) => _$UserDataFromJson(json);
+  factory UserData.fromJson(Map<String, dynamic> json) =>
+      _$UserDataFromJson(json);
 }

@@ -36,14 +36,18 @@ class LoginCubit extends Cubit<LoginState> {
           ? loginResponse.message
           : 'Login successful';
       emit(LoginState.logininSuccess(loginResponse));
-      _showDialog(
-        context,
-        isSuccess: isSuccess,
-        title: isSuccess ? 'Success' : 'Failure',
-        desc: message,
-        dialogType: isSuccess ? DialogType.success : DialogType.warning,
-        color: isSuccess ? Colors.green : Colors.orange,
-      );
+
+      if (context.mounted) {
+        _showDialog(
+          context,
+          isSuccess: isSuccess,
+          title: isSuccess ? 'Success' : 'Failure',
+          desc: message,
+          dialogType: isSuccess ? DialogType.success : DialogType.warning,
+          color: isSuccess ? Colors.green : Colors.orange,
+        );
+      }
+      
 
       if (isSuccess) _clearForm();
     }, failure: (error) {
@@ -69,7 +73,7 @@ class LoginCubit extends Cubit<LoginState> {
       title: title,
       desc: desc,
       btnOkOnPress: () {
-        isSuccess ? context.pushReplacement(Routes.home) :null;
+        isSuccess ? context.pushReplacement(Routes.home) : null;
       },
       btnOkColor: color,
     ).show();
