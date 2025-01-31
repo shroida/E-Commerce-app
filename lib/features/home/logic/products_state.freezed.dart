@@ -22,6 +22,9 @@ mixin _$ProductsState<T> {
     required TResult Function() productsLoading,
     required TResult Function(T data) productsSuccess,
     required TResult Function(String error) productsError,
+    required TResult Function() bannerLoading,
+    required TResult Function(T data) bannerSuccess,
+    required TResult Function(String error) bannerError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +33,9 @@ mixin _$ProductsState<T> {
     TResult? Function()? productsLoading,
     TResult? Function(T data)? productsSuccess,
     TResult? Function(String error)? productsError,
+    TResult? Function()? bannerLoading,
+    TResult? Function(T data)? bannerSuccess,
+    TResult? Function(String error)? bannerError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +44,9 @@ mixin _$ProductsState<T> {
     TResult Function()? productsLoading,
     TResult Function(T data)? productsSuccess,
     TResult Function(String error)? productsError,
+    TResult Function()? bannerLoading,
+    TResult Function(T data)? bannerSuccess,
+    TResult Function(String error)? bannerError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +56,9 @@ mixin _$ProductsState<T> {
     required TResult Function(ProductsLoading<T> value) productsLoading,
     required TResult Function(ProductsSuccess<T> value) productsSuccess,
     required TResult Function(ProductsError<T> value) productsError,
+    required TResult Function(BannerLoading<T> value) bannerLoading,
+    required TResult Function(BannerSuccess<T> value) bannerSuccess,
+    required TResult Function(BannerError<T> value) bannerError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +67,9 @@ mixin _$ProductsState<T> {
     TResult? Function(ProductsLoading<T> value)? productsLoading,
     TResult? Function(ProductsSuccess<T> value)? productsSuccess,
     TResult? Function(ProductsError<T> value)? productsError,
+    TResult? Function(BannerLoading<T> value)? bannerLoading,
+    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult? Function(BannerError<T> value)? bannerError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +78,9 @@ mixin _$ProductsState<T> {
     TResult Function(ProductsLoading<T> value)? productsLoading,
     TResult Function(ProductsSuccess<T> value)? productsSuccess,
     TResult Function(ProductsError<T> value)? productsError,
+    TResult Function(BannerLoading<T> value)? bannerLoading,
+    TResult Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult Function(BannerError<T> value)? bannerError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,6 +152,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function() productsLoading,
     required TResult Function(T data) productsSuccess,
     required TResult Function(String error) productsError,
+    required TResult Function() bannerLoading,
+    required TResult Function(T data) bannerSuccess,
+    required TResult Function(String error) bannerError,
   }) {
     return initial();
   }
@@ -145,6 +166,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function()? productsLoading,
     TResult? Function(T data)? productsSuccess,
     TResult? Function(String error)? productsError,
+    TResult? Function()? bannerLoading,
+    TResult? Function(T data)? bannerSuccess,
+    TResult? Function(String error)? bannerError,
   }) {
     return initial?.call();
   }
@@ -156,6 +180,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function()? productsLoading,
     TResult Function(T data)? productsSuccess,
     TResult Function(String error)? productsError,
+    TResult Function()? bannerLoading,
+    TResult Function(T data)? bannerSuccess,
+    TResult Function(String error)? bannerError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -171,6 +198,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(ProductsLoading<T> value) productsLoading,
     required TResult Function(ProductsSuccess<T> value) productsSuccess,
     required TResult Function(ProductsError<T> value) productsError,
+    required TResult Function(BannerLoading<T> value) bannerLoading,
+    required TResult Function(BannerSuccess<T> value) bannerSuccess,
+    required TResult Function(BannerError<T> value) bannerError,
   }) {
     return initial(this);
   }
@@ -182,6 +212,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(ProductsLoading<T> value)? productsLoading,
     TResult? Function(ProductsSuccess<T> value)? productsSuccess,
     TResult? Function(ProductsError<T> value)? productsError,
+    TResult? Function(BannerLoading<T> value)? bannerLoading,
+    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult? Function(BannerError<T> value)? bannerError,
   }) {
     return initial?.call(this);
   }
@@ -193,6 +226,9 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(ProductsLoading<T> value)? productsLoading,
     TResult Function(ProductsSuccess<T> value)? productsSuccess,
     TResult Function(ProductsError<T> value)? productsError,
+    TResult Function(BannerLoading<T> value)? bannerLoading,
+    TResult Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult Function(BannerError<T> value)? bannerError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -251,6 +287,9 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     required TResult Function() productsLoading,
     required TResult Function(T data) productsSuccess,
     required TResult Function(String error) productsError,
+    required TResult Function() bannerLoading,
+    required TResult Function(T data) bannerSuccess,
+    required TResult Function(String error) bannerError,
   }) {
     return productsLoading();
   }
@@ -262,6 +301,9 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     TResult? Function()? productsLoading,
     TResult? Function(T data)? productsSuccess,
     TResult? Function(String error)? productsError,
+    TResult? Function()? bannerLoading,
+    TResult? Function(T data)? bannerSuccess,
+    TResult? Function(String error)? bannerError,
   }) {
     return productsLoading?.call();
   }
@@ -273,6 +315,9 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     TResult Function()? productsLoading,
     TResult Function(T data)? productsSuccess,
     TResult Function(String error)? productsError,
+    TResult Function()? bannerLoading,
+    TResult Function(T data)? bannerSuccess,
+    TResult Function(String error)? bannerError,
     required TResult orElse(),
   }) {
     if (productsLoading != null) {
@@ -288,6 +333,9 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     required TResult Function(ProductsLoading<T> value) productsLoading,
     required TResult Function(ProductsSuccess<T> value) productsSuccess,
     required TResult Function(ProductsError<T> value) productsError,
+    required TResult Function(BannerLoading<T> value) bannerLoading,
+    required TResult Function(BannerSuccess<T> value) bannerSuccess,
+    required TResult Function(BannerError<T> value) bannerError,
   }) {
     return productsLoading(this);
   }
@@ -299,6 +347,9 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     TResult? Function(ProductsLoading<T> value)? productsLoading,
     TResult? Function(ProductsSuccess<T> value)? productsSuccess,
     TResult? Function(ProductsError<T> value)? productsError,
+    TResult? Function(BannerLoading<T> value)? bannerLoading,
+    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult? Function(BannerError<T> value)? bannerError,
   }) {
     return productsLoading?.call(this);
   }
@@ -310,6 +361,9 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     TResult Function(ProductsLoading<T> value)? productsLoading,
     TResult Function(ProductsSuccess<T> value)? productsSuccess,
     TResult Function(ProductsError<T> value)? productsError,
+    TResult Function(BannerLoading<T> value)? bannerLoading,
+    TResult Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult Function(BannerError<T> value)? bannerError,
     required TResult orElse(),
   }) {
     if (productsLoading != null) {
@@ -397,6 +451,9 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     required TResult Function() productsLoading,
     required TResult Function(T data) productsSuccess,
     required TResult Function(String error) productsError,
+    required TResult Function() bannerLoading,
+    required TResult Function(T data) bannerSuccess,
+    required TResult Function(String error) bannerError,
   }) {
     return productsSuccess(data);
   }
@@ -408,6 +465,9 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     TResult? Function()? productsLoading,
     TResult? Function(T data)? productsSuccess,
     TResult? Function(String error)? productsError,
+    TResult? Function()? bannerLoading,
+    TResult? Function(T data)? bannerSuccess,
+    TResult? Function(String error)? bannerError,
   }) {
     return productsSuccess?.call(data);
   }
@@ -419,6 +479,9 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     TResult Function()? productsLoading,
     TResult Function(T data)? productsSuccess,
     TResult Function(String error)? productsError,
+    TResult Function()? bannerLoading,
+    TResult Function(T data)? bannerSuccess,
+    TResult Function(String error)? bannerError,
     required TResult orElse(),
   }) {
     if (productsSuccess != null) {
@@ -434,6 +497,9 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     required TResult Function(ProductsLoading<T> value) productsLoading,
     required TResult Function(ProductsSuccess<T> value) productsSuccess,
     required TResult Function(ProductsError<T> value) productsError,
+    required TResult Function(BannerLoading<T> value) bannerLoading,
+    required TResult Function(BannerSuccess<T> value) bannerSuccess,
+    required TResult Function(BannerError<T> value) bannerError,
   }) {
     return productsSuccess(this);
   }
@@ -445,6 +511,9 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     TResult? Function(ProductsLoading<T> value)? productsLoading,
     TResult? Function(ProductsSuccess<T> value)? productsSuccess,
     TResult? Function(ProductsError<T> value)? productsError,
+    TResult? Function(BannerLoading<T> value)? bannerLoading,
+    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult? Function(BannerError<T> value)? bannerError,
   }) {
     return productsSuccess?.call(this);
   }
@@ -456,6 +525,9 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     TResult Function(ProductsLoading<T> value)? productsLoading,
     TResult Function(ProductsSuccess<T> value)? productsSuccess,
     TResult Function(ProductsError<T> value)? productsError,
+    TResult Function(BannerLoading<T> value)? bannerLoading,
+    TResult Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult Function(BannerError<T> value)? bannerError,
     required TResult orElse(),
   }) {
     if (productsSuccess != null) {
@@ -550,6 +622,9 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     required TResult Function() productsLoading,
     required TResult Function(T data) productsSuccess,
     required TResult Function(String error) productsError,
+    required TResult Function() bannerLoading,
+    required TResult Function(T data) bannerSuccess,
+    required TResult Function(String error) bannerError,
   }) {
     return productsError(error);
   }
@@ -561,6 +636,9 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     TResult? Function()? productsLoading,
     TResult? Function(T data)? productsSuccess,
     TResult? Function(String error)? productsError,
+    TResult? Function()? bannerLoading,
+    TResult? Function(T data)? bannerSuccess,
+    TResult? Function(String error)? bannerError,
   }) {
     return productsError?.call(error);
   }
@@ -572,6 +650,9 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     TResult Function()? productsLoading,
     TResult Function(T data)? productsSuccess,
     TResult Function(String error)? productsError,
+    TResult Function()? bannerLoading,
+    TResult Function(T data)? bannerSuccess,
+    TResult Function(String error)? bannerError,
     required TResult orElse(),
   }) {
     if (productsError != null) {
@@ -587,6 +668,9 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     required TResult Function(ProductsLoading<T> value) productsLoading,
     required TResult Function(ProductsSuccess<T> value) productsSuccess,
     required TResult Function(ProductsError<T> value) productsError,
+    required TResult Function(BannerLoading<T> value) bannerLoading,
+    required TResult Function(BannerSuccess<T> value) bannerSuccess,
+    required TResult Function(BannerError<T> value) bannerError,
   }) {
     return productsError(this);
   }
@@ -598,6 +682,9 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     TResult? Function(ProductsLoading<T> value)? productsLoading,
     TResult? Function(ProductsSuccess<T> value)? productsSuccess,
     TResult? Function(ProductsError<T> value)? productsError,
+    TResult? Function(BannerLoading<T> value)? bannerLoading,
+    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult? Function(BannerError<T> value)? bannerError,
   }) {
     return productsError?.call(this);
   }
@@ -609,6 +696,9 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     TResult Function(ProductsLoading<T> value)? productsLoading,
     TResult Function(ProductsSuccess<T> value)? productsSuccess,
     TResult Function(ProductsError<T> value)? productsError,
+    TResult Function(BannerLoading<T> value)? bannerLoading,
+    TResult Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult Function(BannerError<T> value)? bannerError,
     required TResult orElse(),
   }) {
     if (productsError != null) {
@@ -628,5 +718,484 @@ abstract class ProductsError<T> implements ProductsState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProductsErrorImplCopyWith<T, _$ProductsErrorImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BannerLoadingImplCopyWith<T, $Res> {
+  factory _$$BannerLoadingImplCopyWith(_$BannerLoadingImpl<T> value,
+          $Res Function(_$BannerLoadingImpl<T>) then) =
+      __$$BannerLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$BannerLoadingImplCopyWithImpl<T, $Res>
+    extends _$ProductsStateCopyWithImpl<T, $Res, _$BannerLoadingImpl<T>>
+    implements _$$BannerLoadingImplCopyWith<T, $Res> {
+  __$$BannerLoadingImplCopyWithImpl(_$BannerLoadingImpl<T> _value,
+      $Res Function(_$BannerLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$BannerLoadingImpl<T> implements BannerLoading<T> {
+  const _$BannerLoadingImpl();
+
+  @override
+  String toString() {
+    return 'ProductsState<$T>.bannerLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$BannerLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() productsLoading,
+    required TResult Function(T data) productsSuccess,
+    required TResult Function(String error) productsError,
+    required TResult Function() bannerLoading,
+    required TResult Function(T data) bannerSuccess,
+    required TResult Function(String error) bannerError,
+  }) {
+    return bannerLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? productsLoading,
+    TResult? Function(T data)? productsSuccess,
+    TResult? Function(String error)? productsError,
+    TResult? Function()? bannerLoading,
+    TResult? Function(T data)? bannerSuccess,
+    TResult? Function(String error)? bannerError,
+  }) {
+    return bannerLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? productsLoading,
+    TResult Function(T data)? productsSuccess,
+    TResult Function(String error)? productsError,
+    TResult Function()? bannerLoading,
+    TResult Function(T data)? bannerSuccess,
+    TResult Function(String error)? bannerError,
+    required TResult orElse(),
+  }) {
+    if (bannerLoading != null) {
+      return bannerLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ProductsLoading<T> value) productsLoading,
+    required TResult Function(ProductsSuccess<T> value) productsSuccess,
+    required TResult Function(ProductsError<T> value) productsError,
+    required TResult Function(BannerLoading<T> value) bannerLoading,
+    required TResult Function(BannerSuccess<T> value) bannerSuccess,
+    required TResult Function(BannerError<T> value) bannerError,
+  }) {
+    return bannerLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ProductsLoading<T> value)? productsLoading,
+    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
+    TResult? Function(ProductsError<T> value)? productsError,
+    TResult? Function(BannerLoading<T> value)? bannerLoading,
+    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult? Function(BannerError<T> value)? bannerError,
+  }) {
+    return bannerLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ProductsLoading<T> value)? productsLoading,
+    TResult Function(ProductsSuccess<T> value)? productsSuccess,
+    TResult Function(ProductsError<T> value)? productsError,
+    TResult Function(BannerLoading<T> value)? bannerLoading,
+    TResult Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult Function(BannerError<T> value)? bannerError,
+    required TResult orElse(),
+  }) {
+    if (bannerLoading != null) {
+      return bannerLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BannerLoading<T> implements ProductsState<T> {
+  const factory BannerLoading() = _$BannerLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$BannerSuccessImplCopyWith<T, $Res> {
+  factory _$$BannerSuccessImplCopyWith(_$BannerSuccessImpl<T> value,
+          $Res Function(_$BannerSuccessImpl<T>) then) =
+      __$$BannerSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$BannerSuccessImplCopyWithImpl<T, $Res>
+    extends _$ProductsStateCopyWithImpl<T, $Res, _$BannerSuccessImpl<T>>
+    implements _$$BannerSuccessImplCopyWith<T, $Res> {
+  __$$BannerSuccessImplCopyWithImpl(_$BannerSuccessImpl<T> _value,
+      $Res Function(_$BannerSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$BannerSuccessImpl<T>(
+      freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$BannerSuccessImpl<T> implements BannerSuccess<T> {
+  const _$BannerSuccessImpl(this.data);
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'ProductsState<$T>.bannerSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BannerSuccessImpl<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BannerSuccessImplCopyWith<T, _$BannerSuccessImpl<T>> get copyWith =>
+      __$$BannerSuccessImplCopyWithImpl<T, _$BannerSuccessImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() productsLoading,
+    required TResult Function(T data) productsSuccess,
+    required TResult Function(String error) productsError,
+    required TResult Function() bannerLoading,
+    required TResult Function(T data) bannerSuccess,
+    required TResult Function(String error) bannerError,
+  }) {
+    return bannerSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? productsLoading,
+    TResult? Function(T data)? productsSuccess,
+    TResult? Function(String error)? productsError,
+    TResult? Function()? bannerLoading,
+    TResult? Function(T data)? bannerSuccess,
+    TResult? Function(String error)? bannerError,
+  }) {
+    return bannerSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? productsLoading,
+    TResult Function(T data)? productsSuccess,
+    TResult Function(String error)? productsError,
+    TResult Function()? bannerLoading,
+    TResult Function(T data)? bannerSuccess,
+    TResult Function(String error)? bannerError,
+    required TResult orElse(),
+  }) {
+    if (bannerSuccess != null) {
+      return bannerSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ProductsLoading<T> value) productsLoading,
+    required TResult Function(ProductsSuccess<T> value) productsSuccess,
+    required TResult Function(ProductsError<T> value) productsError,
+    required TResult Function(BannerLoading<T> value) bannerLoading,
+    required TResult Function(BannerSuccess<T> value) bannerSuccess,
+    required TResult Function(BannerError<T> value) bannerError,
+  }) {
+    return bannerSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ProductsLoading<T> value)? productsLoading,
+    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
+    TResult? Function(ProductsError<T> value)? productsError,
+    TResult? Function(BannerLoading<T> value)? bannerLoading,
+    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult? Function(BannerError<T> value)? bannerError,
+  }) {
+    return bannerSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ProductsLoading<T> value)? productsLoading,
+    TResult Function(ProductsSuccess<T> value)? productsSuccess,
+    TResult Function(ProductsError<T> value)? productsError,
+    TResult Function(BannerLoading<T> value)? bannerLoading,
+    TResult Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult Function(BannerError<T> value)? bannerError,
+    required TResult orElse(),
+  }) {
+    if (bannerSuccess != null) {
+      return bannerSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BannerSuccess<T> implements ProductsState<T> {
+  const factory BannerSuccess(final T data) = _$BannerSuccessImpl<T>;
+
+  T get data;
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BannerSuccessImplCopyWith<T, _$BannerSuccessImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BannerErrorImplCopyWith<T, $Res> {
+  factory _$$BannerErrorImplCopyWith(_$BannerErrorImpl<T> value,
+          $Res Function(_$BannerErrorImpl<T>) then) =
+      __$$BannerErrorImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$BannerErrorImplCopyWithImpl<T, $Res>
+    extends _$ProductsStateCopyWithImpl<T, $Res, _$BannerErrorImpl<T>>
+    implements _$$BannerErrorImplCopyWith<T, $Res> {
+  __$$BannerErrorImplCopyWithImpl(
+      _$BannerErrorImpl<T> _value, $Res Function(_$BannerErrorImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$BannerErrorImpl<T>(
+      error: null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$BannerErrorImpl<T> implements BannerError<T> {
+  const _$BannerErrorImpl({required this.error});
+
+  @override
+  final String error;
+
+  @override
+  String toString() {
+    return 'ProductsState<$T>.bannerError(error: $error)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BannerErrorImpl<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BannerErrorImplCopyWith<T, _$BannerErrorImpl<T>> get copyWith =>
+      __$$BannerErrorImplCopyWithImpl<T, _$BannerErrorImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() productsLoading,
+    required TResult Function(T data) productsSuccess,
+    required TResult Function(String error) productsError,
+    required TResult Function() bannerLoading,
+    required TResult Function(T data) bannerSuccess,
+    required TResult Function(String error) bannerError,
+  }) {
+    return bannerError(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? productsLoading,
+    TResult? Function(T data)? productsSuccess,
+    TResult? Function(String error)? productsError,
+    TResult? Function()? bannerLoading,
+    TResult? Function(T data)? bannerSuccess,
+    TResult? Function(String error)? bannerError,
+  }) {
+    return bannerError?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? productsLoading,
+    TResult Function(T data)? productsSuccess,
+    TResult Function(String error)? productsError,
+    TResult Function()? bannerLoading,
+    TResult Function(T data)? bannerSuccess,
+    TResult Function(String error)? bannerError,
+    required TResult orElse(),
+  }) {
+    if (bannerError != null) {
+      return bannerError(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ProductsLoading<T> value) productsLoading,
+    required TResult Function(ProductsSuccess<T> value) productsSuccess,
+    required TResult Function(ProductsError<T> value) productsError,
+    required TResult Function(BannerLoading<T> value) bannerLoading,
+    required TResult Function(BannerSuccess<T> value) bannerSuccess,
+    required TResult Function(BannerError<T> value) bannerError,
+  }) {
+    return bannerError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ProductsLoading<T> value)? productsLoading,
+    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
+    TResult? Function(ProductsError<T> value)? productsError,
+    TResult? Function(BannerLoading<T> value)? bannerLoading,
+    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult? Function(BannerError<T> value)? bannerError,
+  }) {
+    return bannerError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ProductsLoading<T> value)? productsLoading,
+    TResult Function(ProductsSuccess<T> value)? productsSuccess,
+    TResult Function(ProductsError<T> value)? productsError,
+    TResult Function(BannerLoading<T> value)? bannerLoading,
+    TResult Function(BannerSuccess<T> value)? bannerSuccess,
+    TResult Function(BannerError<T> value)? bannerError,
+    required TResult orElse(),
+  }) {
+    if (bannerError != null) {
+      return bannerError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class BannerError<T> implements ProductsState<T> {
+  const factory BannerError({required final String error}) =
+      _$BannerErrorImpl<T>;
+
+  String get error;
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BannerErrorImplCopyWith<T, _$BannerErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

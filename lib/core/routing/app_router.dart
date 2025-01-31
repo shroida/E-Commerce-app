@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/di/dependency_injection.dart';
 import 'package:e_commerce_app/core/routing/routes.dart';
+import 'package:e_commerce_app/features/home/logic/products_cubit.dart';
 import 'package:e_commerce_app/features/home/ui/home_screen.dart';
 import 'package:e_commerce_app/features/login/logic/login_cubit.dart';
 import 'package:e_commerce_app/features/login/ui/login_screen.dart';
@@ -18,10 +19,6 @@ class AppRouter {
         path: Routes.splashScreen,
         builder: (context, state) => const SplashScreen(),
       ),
-      GoRoute(
-        path: Routes.home,
-        builder: (context, state) => const HomeScreen(),
-      ),
 
       GoRoute(
         path: Routes.registerScreen,
@@ -36,6 +33,13 @@ class AppRouter {
         builder: (context, state) => BlocProvider(
           create: (context) => ProfileCubit(getIt())..getUserProfileData(),
           child: const ProfileScreen(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.home,
+        builder: (context, state) => BlocProvider(
+          create: (context) => ProductsCubit()..getBanners(),
+          child: const HomeScreen(),
         ),
       ),
       GoRoute(

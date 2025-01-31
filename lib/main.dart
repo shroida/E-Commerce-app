@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setUpGetIt();
+  await setUpGetIt();
   final appRouter = AppRouter();
   await checkIfLoggedInUser();
   runApp(StoreApp(

@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const Center(child: Text('Categories')),
     const Center(child: Text('Cart')),
   ];
-
+  
   void _onItemTapped(int index) async {
     setState(() {
       _selectedIndex = index;
