@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:e_commerce_app/core/networking/api_constants.dart';
 import 'package:e_commerce_app/features/login/data/models/login_request.dart';
 import 'package:e_commerce_app/features/login/data/models/login_response.dart';
+import 'package:e_commerce_app/features/profile/data/model/profile_response.dart';
 import 'package:e_commerce_app/features/register/data/models/signup_request.dart';
 import 'package:e_commerce_app/features/register/data/models/signup_response.dart';
 import 'package:retrofit/http.dart';
@@ -18,5 +19,11 @@ abstract class ApiService {
   @POST(ApiConstants.login)
   Future<LoginResponse> login(
     @Body() LoginRequest loginRequest,
+  );
+
+  @GET(ApiConstants.userData)
+  Future<ProfileResponse> profile(
+    @Header('Authorization') String token,
+    @Header('lang') String lang,
   );
 }
