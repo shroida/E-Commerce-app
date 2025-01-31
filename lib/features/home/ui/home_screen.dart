@@ -11,7 +11,13 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  final List<Widget> _pages = [const HomeView(), const ProfileScreen()];
+  final List<Widget> _pages = [
+    const HomeView(),
+    const ProfileScreen(),
+    const Center(child: Text('Favorite')),
+    const Center(child: Text('Categories')),
+    const Center(child: Text('Cart')),
+  ];
 
   void _onItemTapped(int index) async {
     setState(() {
@@ -33,9 +39,27 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.person),
             label: 'Profile',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Favorite',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.category),
+            label: 'Categories',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Colors.blueAccent,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        elevation: 8,
         onTap: _onItemTapped,
       ),
     );

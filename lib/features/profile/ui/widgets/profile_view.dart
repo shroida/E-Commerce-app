@@ -17,11 +17,9 @@ class ProfileView extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          // User Profile Picture
           CircleAvatar(
             radius: 50,
-            backgroundImage: NetworkImage(
-                userData?.token ?? ''), // Placeholder for profile image
+            backgroundImage: NetworkImage(userData?.token ?? ''),
             backgroundColor: ColorsManager.cardColor,
           ),
           const SizedBox(height: 16),
@@ -35,7 +33,6 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          // User Email
           Text(
             userData?.email ?? 'No email provided',
             style: const TextStyle(
@@ -44,7 +41,6 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          // User Phone
           Text(
             userData?.phone ?? 'No phone number provided',
             style: const TextStyle(
@@ -53,7 +49,6 @@ class ProfileView extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          // User ID
           Container(
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(

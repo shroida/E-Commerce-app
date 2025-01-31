@@ -11,23 +11,25 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: BlocProvider(
-        create: (context) => ProfileCubit(getIt())..getUserProfileData(),
-        child: BlocConsumer<ProfileCubit, ProfileState>(
-          builder: (context, state) {
-            if (state is ProfileLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is ProfileError) {
-              return Center(child: Text('Error: ${state.error}'));
-            } else {
-              final userData = BlocProvider.of<ProfileCubit>(context).userData;
-              return ProfileView(userData: userData);
-            }
-          },
-          listener: (context, state) {
-            if (state is ProfileError) {}
-          },
+      body: SafeArea(
+        child: BlocProvider(
+          create: (context) => ProfileCubit(getIt())..getUserProfileData(),
+          child: BlocConsumer<ProfileCubit, ProfileState>(
+            builder: (context, state) {
+              if (state is ProfileLoading) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (state is ProfileError) {
+                return Center(child: Text('Error: ${state.error}'));
+              } else {
+                final userData =
+                    BlocProvider.of<ProfileCubit>(context).userData;
+                return ProfileView(userData: userData);
+              }
+            },
+            listener: (context, state) {
+              if (state is ProfileError) {}
+            },
+          ),
         ),
       ),
     );
