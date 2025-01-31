@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'profile_request.g.dart';
+
 @JsonSerializable()
 class ProfileRequest {
   String token;
@@ -8,4 +9,5 @@ class ProfileRequest {
     required this.token,
     required this.lang,
   });
+  Map<String, dynamic> toJson() => _$ProfileRequestToJson(this);
 }
