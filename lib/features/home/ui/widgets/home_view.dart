@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/features/home/data/model/banner_model.dart';
 import 'package:e_commerce_app/features/home/logic/products_cubit.dart';
+import 'package:e_commerce_app/features/home/ui/widgets/banners_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,17 +29,18 @@ class _HomeViewState extends State<HomeView> {
         });
       }
     } catch (e) {
-      // Handle error if necessary
       debugPrint('Error fetching banners: $e');
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: banners.isNotEmpty
-          ? Text(banners.first.id.toString())
-          : const CircularProgressIndicator(),
+    return SafeArea(
+      child: Center(
+        child: banners.isEmpty
+            ? const CircularProgressIndicator()
+            : BannerImages(banners: banners),
+      ),
     );
   }
 }
