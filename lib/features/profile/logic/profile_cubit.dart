@@ -24,27 +24,7 @@ class ProfileCubit extends Cubit<ProfileState> {
         token,
         'en',
       );
-      print(
-          '========================================================'); // Log the response
-      print(
-          '========================================================'); // Log the response
-      print(
-          '========================================================'); // Log the response
-      print(
-          '========================================================'); // Log the response
-      print('API Response: $response'); // Log the response
-      print(
-          '========================================================'); // Log the response
-      print(
-          '========================================================'); // Log the response
-      print(
-          '========================================================'); // Log the response
-      print(
-          '========================================================'); // Log the response
-      print(
-          '========================================================'); // Log the response
-      print(
-          '========================================================'); // Log the response
+
       response.when(
         success: (profileResponse) {
           if (profileResponse.userData != null) {

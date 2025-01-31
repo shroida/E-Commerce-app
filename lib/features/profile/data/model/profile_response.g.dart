@@ -9,16 +9,31 @@ part of 'profile_response.dart';
 ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) =>
     ProfileResponse(
       status: json['status'] as bool,
-      message: json['message'] as String,
+      message: json['message'] as String?,
       userData: json['data'] == null
           ? null
           : UserData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
+Map<String, dynamic> _$ProfileResponseToJson(ProfileResponse instance) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'message': instance.message,
+      'data': instance.userData,
+    };
+
 UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       id: (json['id'] as num?)?.toInt(),
-      name: json['name'] as String,
-      email: json['email'] as String,
-      phone: json['phone'] as String,
-      token: json['token'] as String,
+      name: json['name'] as String?,
+      email: json['email'] as String?,
+      phone: json['phone'] as String?,
+      token: json['token'] as String?,
     );
+
+Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'email': instance.email,
+      'phone': instance.phone,
+      'token': instance.token,
+    };

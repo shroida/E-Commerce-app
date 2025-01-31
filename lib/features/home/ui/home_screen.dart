@@ -1,8 +1,6 @@
-import 'package:e_commerce_app/core/routing/app_router.dart';
-import 'package:e_commerce_app/core/routing/routes.dart';
+import 'package:e_commerce_app/features/home/ui/widgets/home_view.dart';
 import 'package:e_commerce_app/features/profile/ui/profile_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  final List<Widget> _pages = [const ProfileScreen()];
+  final List<Widget> _pages = [const HomeView(), const ProfileScreen()];
 
   void _onItemTapped(int index) async {
     setState(() {
@@ -24,16 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Screen'),
-      ),
-      body: Center(
-      child: ElevatedButton(
-          onPressed: () {
-            context.push(Routes.profile);
-          },
-          child: Text('profile')),
-    ),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
