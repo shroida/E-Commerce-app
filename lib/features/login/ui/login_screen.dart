@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/login/ui/widgets/dont_have_account.dart';
 import 'package:e_commerce_app/features/login/ui/widgets/login_form.dart';
 import 'package:e_commerce_app/features/login/ui/widgets/text_login.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,10 @@ class LoginScreen extends StatelessWidget {
               height: 20,
             ),
             LoginForm(),
+            SizedBox(
+              height: 20,
+            ),
+            DontHaveAccountText(),
           ],
         ),
       )),

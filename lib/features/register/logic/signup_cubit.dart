@@ -18,17 +18,6 @@ class SignupCubit extends Cubit<SignupState> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  @override
-  Future<void> close() {
-    // Dispose controllers when the cubit is closed
-    nameController.dispose();
-    emailController.dispose();
-    phoneController.dispose();
-    passwordController.dispose();
-    confirmPasswordController.dispose();
-    return super.close();
-  }
-
   void emitSignupStates(BuildContext context) async {
     if (!(formKey.currentState?.validate() ?? false)) return;
 
@@ -55,7 +44,7 @@ class SignupCubit extends Cubit<SignupState> {
           dialogType: isSuccess ? DialogType.success : DialogType.warning,
           color: isSuccess ? Colors.green : Colors.orange,
         );
-        if (isSuccess) _clearForm();
+       
       },
       failure: (error) {
         emit(SignupState.signuperror(errorMessag: error.toString()));
@@ -86,11 +75,5 @@ class SignupCubit extends Cubit<SignupState> {
     ).show();
   }
 
-  void _clearForm() {
-    nameController.clear();
-    emailController.clear();
-    phoneController.clear();
-    passwordController.clear();
-    confirmPasswordController.clear();
-  }
+ 
 }
