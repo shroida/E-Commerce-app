@@ -19,68 +19,54 @@ mixin _$ProductsState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() productsLoading,
-    required TResult Function(T data) productsSuccess,
-    required TResult Function(String error) productsError,
-    required TResult Function() bannerLoading,
-    required TResult Function(T data) bannerSuccess,
-    required TResult Function(String error) bannerError,
+    required TResult Function() loading,
+    required TResult Function(
+            List<BannerModel> banners, List<ProductModel> products)
+        success,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? productsLoading,
-    TResult? Function(T data)? productsSuccess,
-    TResult? Function(String error)? productsError,
-    TResult? Function()? bannerLoading,
-    TResult? Function(T data)? bannerSuccess,
-    TResult? Function(String error)? bannerError,
+    TResult? Function()? loading,
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? productsLoading,
-    TResult Function(T data)? productsSuccess,
-    TResult Function(String error)? productsError,
-    TResult Function()? bannerLoading,
-    TResult Function(T data)? bannerSuccess,
-    TResult Function(String error)? bannerError,
+    TResult Function()? loading,
+    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProductsLoading<T> value) productsLoading,
-    required TResult Function(ProductsSuccess<T> value) productsSuccess,
-    required TResult Function(ProductsError<T> value) productsError,
-    required TResult Function(BannerLoading<T> value) bannerLoading,
-    required TResult Function(BannerSuccess<T> value) bannerSuccess,
-    required TResult Function(BannerError<T> value) bannerError,
+    required TResult Function(ProductsLoading<T> value) loading,
+    required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsError<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProductsLoading<T> value)? productsLoading,
-    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult? Function(ProductsError<T> value)? productsError,
-    TResult? Function(BannerLoading<T> value)? bannerLoading,
-    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult? Function(BannerError<T> value)? bannerError,
+    TResult? Function(ProductsLoading<T> value)? loading,
+    TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsError<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProductsLoading<T> value)? productsLoading,
-    TResult Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult Function(ProductsError<T> value)? productsError,
-    TResult Function(BannerLoading<T> value)? bannerLoading,
-    TResult Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult Function(BannerError<T> value)? bannerError,
+    TResult Function(ProductsLoading<T> value)? loading,
+    TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -149,12 +135,11 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() productsLoading,
-    required TResult Function(T data) productsSuccess,
-    required TResult Function(String error) productsError,
-    required TResult Function() bannerLoading,
-    required TResult Function(T data) bannerSuccess,
-    required TResult Function(String error) bannerError,
+    required TResult Function() loading,
+    required TResult Function(
+            List<BannerModel> banners, List<ProductModel> products)
+        success,
+    required TResult Function(String message) error,
   }) {
     return initial();
   }
@@ -163,12 +148,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? productsLoading,
-    TResult? Function(T data)? productsSuccess,
-    TResult? Function(String error)? productsError,
-    TResult? Function()? bannerLoading,
-    TResult? Function(T data)? bannerSuccess,
-    TResult? Function(String error)? bannerError,
+    TResult? Function()? loading,
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult? Function(String message)? error,
   }) {
     return initial?.call();
   }
@@ -177,12 +160,10 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? productsLoading,
-    TResult Function(T data)? productsSuccess,
-    TResult Function(String error)? productsError,
-    TResult Function()? bannerLoading,
-    TResult Function(T data)? bannerSuccess,
-    TResult Function(String error)? bannerError,
+    TResult Function()? loading,
+    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -195,12 +176,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProductsLoading<T> value) productsLoading,
-    required TResult Function(ProductsSuccess<T> value) productsSuccess,
-    required TResult Function(ProductsError<T> value) productsError,
-    required TResult Function(BannerLoading<T> value) bannerLoading,
-    required TResult Function(BannerSuccess<T> value) bannerSuccess,
-    required TResult Function(BannerError<T> value) bannerError,
+    required TResult Function(ProductsLoading<T> value) loading,
+    required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsError<T> value) error,
   }) {
     return initial(this);
   }
@@ -209,12 +187,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProductsLoading<T> value)? productsLoading,
-    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult? Function(ProductsError<T> value)? productsError,
-    TResult? Function(BannerLoading<T> value)? bannerLoading,
-    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult? Function(BannerError<T> value)? bannerError,
+    TResult? Function(ProductsLoading<T> value)? loading,
+    TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsError<T> value)? error,
   }) {
     return initial?.call(this);
   }
@@ -223,12 +198,9 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProductsLoading<T> value)? productsLoading,
-    TResult Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult Function(ProductsError<T> value)? productsError,
-    TResult Function(BannerLoading<T> value)? bannerLoading,
-    TResult Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult Function(BannerError<T> value)? bannerError,
+    TResult Function(ProductsLoading<T> value)? loading,
+    TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -268,7 +240,7 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
 
   @override
   String toString() {
-    return 'ProductsState<$T>.productsLoading()';
+    return 'ProductsState<$T>.loading()';
   }
 
   @override
@@ -284,44 +256,39 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() productsLoading,
-    required TResult Function(T data) productsSuccess,
-    required TResult Function(String error) productsError,
-    required TResult Function() bannerLoading,
-    required TResult Function(T data) bannerSuccess,
-    required TResult Function(String error) bannerError,
+    required TResult Function() loading,
+    required TResult Function(
+            List<BannerModel> banners, List<ProductModel> products)
+        success,
+    required TResult Function(String message) error,
   }) {
-    return productsLoading();
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? productsLoading,
-    TResult? Function(T data)? productsSuccess,
-    TResult? Function(String error)? productsError,
-    TResult? Function()? bannerLoading,
-    TResult? Function(T data)? bannerSuccess,
-    TResult? Function(String error)? bannerError,
+    TResult? Function()? loading,
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult? Function(String message)? error,
   }) {
-    return productsLoading?.call();
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? productsLoading,
-    TResult Function(T data)? productsSuccess,
-    TResult Function(String error)? productsError,
-    TResult Function()? bannerLoading,
-    TResult Function(T data)? bannerSuccess,
-    TResult Function(String error)? bannerError,
+    TResult Function()? loading,
+    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if (productsLoading != null) {
-      return productsLoading();
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
@@ -330,44 +297,35 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProductsLoading<T> value) productsLoading,
-    required TResult Function(ProductsSuccess<T> value) productsSuccess,
-    required TResult Function(ProductsError<T> value) productsError,
-    required TResult Function(BannerLoading<T> value) bannerLoading,
-    required TResult Function(BannerSuccess<T> value) bannerSuccess,
-    required TResult Function(BannerError<T> value) bannerError,
+    required TResult Function(ProductsLoading<T> value) loading,
+    required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsError<T> value) error,
   }) {
-    return productsLoading(this);
+    return loading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProductsLoading<T> value)? productsLoading,
-    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult? Function(ProductsError<T> value)? productsError,
-    TResult? Function(BannerLoading<T> value)? bannerLoading,
-    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult? Function(BannerError<T> value)? bannerError,
+    TResult? Function(ProductsLoading<T> value)? loading,
+    TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsError<T> value)? error,
   }) {
-    return productsLoading?.call(this);
+    return loading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProductsLoading<T> value)? productsLoading,
-    TResult Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult Function(ProductsError<T> value)? productsError,
-    TResult Function(BannerLoading<T> value)? bannerLoading,
-    TResult Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult Function(BannerError<T> value)? bannerError,
+    TResult Function(ProductsLoading<T> value)? loading,
+    TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) {
-    if (productsLoading != null) {
-      return productsLoading(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
@@ -383,7 +341,7 @@ abstract class _$$ProductsSuccessImplCopyWith<T, $Res> {
           $Res Function(_$ProductsSuccessImpl<T>) then) =
       __$$ProductsSuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({T data});
+  $Res call({List<BannerModel> banners, List<ProductModel> products});
 }
 
 /// @nodoc
@@ -399,13 +357,18 @@ class __$$ProductsSuccessImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? banners = null,
+    Object? products = null,
   }) {
     return _then(_$ProductsSuccessImpl<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
+      banners: null == banners
+          ? _value._banners
+          : banners // ignore: cast_nullable_to_non_nullable
+              as List<BannerModel>,
+      products: null == products
+          ? _value._products
+          : products // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
     ));
   }
 }
@@ -413,14 +376,31 @@ class __$$ProductsSuccessImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
-  const _$ProductsSuccessImpl(this.data);
+  const _$ProductsSuccessImpl(
+      {required final List<BannerModel> banners,
+      required final List<ProductModel> products})
+      : _banners = banners,
+        _products = products;
 
+  final List<BannerModel> _banners;
   @override
-  final T data;
+  List<BannerModel> get banners {
+    if (_banners is EqualUnmodifiableListView) return _banners;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_banners);
+  }
+
+  final List<ProductModel> _products;
+  @override
+  List<ProductModel> get products {
+    if (_products is EqualUnmodifiableListView) return _products;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_products);
+  }
 
   @override
   String toString() {
-    return 'ProductsState<$T>.productsSuccess(data: $data)';
+    return 'ProductsState<$T>.success(banners: $banners, products: $products)';
   }
 
   @override
@@ -428,12 +408,15 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductsSuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
+            const DeepCollectionEquality().equals(other._banners, _banners) &&
+            const DeepCollectionEquality().equals(other._products, _products));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_banners),
+      const DeepCollectionEquality().hash(_products));
 
   /// Create a copy of ProductsState
   /// with the given fields replaced by the non-null parameter values.
@@ -448,44 +431,39 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() productsLoading,
-    required TResult Function(T data) productsSuccess,
-    required TResult Function(String error) productsError,
-    required TResult Function() bannerLoading,
-    required TResult Function(T data) bannerSuccess,
-    required TResult Function(String error) bannerError,
+    required TResult Function() loading,
+    required TResult Function(
+            List<BannerModel> banners, List<ProductModel> products)
+        success,
+    required TResult Function(String message) error,
   }) {
-    return productsSuccess(data);
+    return success(banners, products);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? productsLoading,
-    TResult? Function(T data)? productsSuccess,
-    TResult? Function(String error)? productsError,
-    TResult? Function()? bannerLoading,
-    TResult? Function(T data)? bannerSuccess,
-    TResult? Function(String error)? bannerError,
+    TResult? Function()? loading,
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult? Function(String message)? error,
   }) {
-    return productsSuccess?.call(data);
+    return success?.call(banners, products);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? productsLoading,
-    TResult Function(T data)? productsSuccess,
-    TResult Function(String error)? productsError,
-    TResult Function()? bannerLoading,
-    TResult Function(T data)? bannerSuccess,
-    TResult Function(String error)? bannerError,
+    TResult Function()? loading,
+    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if (productsSuccess != null) {
-      return productsSuccess(data);
+    if (success != null) {
+      return success(banners, products);
     }
     return orElse();
   }
@@ -494,53 +472,47 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProductsLoading<T> value) productsLoading,
-    required TResult Function(ProductsSuccess<T> value) productsSuccess,
-    required TResult Function(ProductsError<T> value) productsError,
-    required TResult Function(BannerLoading<T> value) bannerLoading,
-    required TResult Function(BannerSuccess<T> value) bannerSuccess,
-    required TResult Function(BannerError<T> value) bannerError,
+    required TResult Function(ProductsLoading<T> value) loading,
+    required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsError<T> value) error,
   }) {
-    return productsSuccess(this);
+    return success(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProductsLoading<T> value)? productsLoading,
-    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult? Function(ProductsError<T> value)? productsError,
-    TResult? Function(BannerLoading<T> value)? bannerLoading,
-    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult? Function(BannerError<T> value)? bannerError,
+    TResult? Function(ProductsLoading<T> value)? loading,
+    TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsError<T> value)? error,
   }) {
-    return productsSuccess?.call(this);
+    return success?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProductsLoading<T> value)? productsLoading,
-    TResult Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult Function(ProductsError<T> value)? productsError,
-    TResult Function(BannerLoading<T> value)? bannerLoading,
-    TResult Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult Function(BannerError<T> value)? bannerError,
+    TResult Function(ProductsLoading<T> value)? loading,
+    TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) {
-    if (productsSuccess != null) {
-      return productsSuccess(this);
+    if (success != null) {
+      return success(this);
     }
     return orElse();
   }
 }
 
 abstract class ProductsSuccess<T> implements ProductsState<T> {
-  const factory ProductsSuccess(final T data) = _$ProductsSuccessImpl<T>;
+  const factory ProductsSuccess(
+      {required final List<BannerModel> banners,
+      required final List<ProductModel> products}) = _$ProductsSuccessImpl<T>;
 
-  T get data;
+  List<BannerModel> get banners;
+  List<ProductModel> get products;
 
   /// Create a copy of ProductsState
   /// with the given fields replaced by the non-null parameter values.
@@ -555,7 +527,7 @@ abstract class _$$ProductsErrorImplCopyWith<T, $Res> {
           $Res Function(_$ProductsErrorImpl<T>) then) =
       __$$ProductsErrorImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({String error});
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -571,12 +543,12 @@ class __$$ProductsErrorImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? message = null,
   }) {
     return _then(_$ProductsErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -585,14 +557,14 @@ class __$$ProductsErrorImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$ProductsErrorImpl<T> implements ProductsError<T> {
-  const _$ProductsErrorImpl({required this.error});
+  const _$ProductsErrorImpl({required this.message});
 
   @override
-  final String error;
+  final String message;
 
   @override
   String toString() {
-    return 'ProductsState<$T>.productsError(error: $error)';
+    return 'ProductsState<$T>.error(message: $message)';
   }
 
   @override
@@ -600,11 +572,11 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProductsErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, message);
 
   /// Create a copy of ProductsState
   /// with the given fields replaced by the non-null parameter values.
@@ -619,44 +591,39 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() productsLoading,
-    required TResult Function(T data) productsSuccess,
-    required TResult Function(String error) productsError,
-    required TResult Function() bannerLoading,
-    required TResult Function(T data) bannerSuccess,
-    required TResult Function(String error) bannerError,
+    required TResult Function() loading,
+    required TResult Function(
+            List<BannerModel> banners, List<ProductModel> products)
+        success,
+    required TResult Function(String message) error,
   }) {
-    return productsError(error);
+    return error(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? productsLoading,
-    TResult? Function(T data)? productsSuccess,
-    TResult? Function(String error)? productsError,
-    TResult? Function()? bannerLoading,
-    TResult? Function(T data)? bannerSuccess,
-    TResult? Function(String error)? bannerError,
+    TResult? Function()? loading,
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult? Function(String message)? error,
   }) {
-    return productsError?.call(error);
+    return error?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? productsLoading,
-    TResult Function(T data)? productsSuccess,
-    TResult Function(String error)? productsError,
-    TResult Function()? bannerLoading,
-    TResult Function(T data)? bannerSuccess,
-    TResult Function(String error)? bannerError,
+    TResult Function()? loading,
+    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+        success,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
-    if (productsError != null) {
-      return productsError(error);
+    if (error != null) {
+      return error(message);
     }
     return orElse();
   }
@@ -665,537 +632,49 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProductsLoading<T> value) productsLoading,
-    required TResult Function(ProductsSuccess<T> value) productsSuccess,
-    required TResult Function(ProductsError<T> value) productsError,
-    required TResult Function(BannerLoading<T> value) bannerLoading,
-    required TResult Function(BannerSuccess<T> value) bannerSuccess,
-    required TResult Function(BannerError<T> value) bannerError,
+    required TResult Function(ProductsLoading<T> value) loading,
+    required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsError<T> value) error,
   }) {
-    return productsError(this);
+    return error(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProductsLoading<T> value)? productsLoading,
-    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult? Function(ProductsError<T> value)? productsError,
-    TResult? Function(BannerLoading<T> value)? bannerLoading,
-    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult? Function(BannerError<T> value)? bannerError,
+    TResult? Function(ProductsLoading<T> value)? loading,
+    TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsError<T> value)? error,
   }) {
-    return productsError?.call(this);
+    return error?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProductsLoading<T> value)? productsLoading,
-    TResult Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult Function(ProductsError<T> value)? productsError,
-    TResult Function(BannerLoading<T> value)? bannerLoading,
-    TResult Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult Function(BannerError<T> value)? bannerError,
+    TResult Function(ProductsLoading<T> value)? loading,
+    TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) {
-    if (productsError != null) {
-      return productsError(this);
+    if (error != null) {
+      return error(this);
     }
     return orElse();
   }
 }
 
 abstract class ProductsError<T> implements ProductsState<T> {
-  const factory ProductsError({required final String error}) =
+  const factory ProductsError({required final String message}) =
       _$ProductsErrorImpl<T>;
 
-  String get error;
+  String get message;
 
   /// Create a copy of ProductsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProductsErrorImplCopyWith<T, _$ProductsErrorImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$BannerLoadingImplCopyWith<T, $Res> {
-  factory _$$BannerLoadingImplCopyWith(_$BannerLoadingImpl<T> value,
-          $Res Function(_$BannerLoadingImpl<T>) then) =
-      __$$BannerLoadingImplCopyWithImpl<T, $Res>;
-}
-
-/// @nodoc
-class __$$BannerLoadingImplCopyWithImpl<T, $Res>
-    extends _$ProductsStateCopyWithImpl<T, $Res, _$BannerLoadingImpl<T>>
-    implements _$$BannerLoadingImplCopyWith<T, $Res> {
-  __$$BannerLoadingImplCopyWithImpl(_$BannerLoadingImpl<T> _value,
-      $Res Function(_$BannerLoadingImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ProductsState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$BannerLoadingImpl<T> implements BannerLoading<T> {
-  const _$BannerLoadingImpl();
-
-  @override
-  String toString() {
-    return 'ProductsState<$T>.bannerLoading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$BannerLoadingImpl<T>);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() productsLoading,
-    required TResult Function(T data) productsSuccess,
-    required TResult Function(String error) productsError,
-    required TResult Function() bannerLoading,
-    required TResult Function(T data) bannerSuccess,
-    required TResult Function(String error) bannerError,
-  }) {
-    return bannerLoading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? productsLoading,
-    TResult? Function(T data)? productsSuccess,
-    TResult? Function(String error)? productsError,
-    TResult? Function()? bannerLoading,
-    TResult? Function(T data)? bannerSuccess,
-    TResult? Function(String error)? bannerError,
-  }) {
-    return bannerLoading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? productsLoading,
-    TResult Function(T data)? productsSuccess,
-    TResult Function(String error)? productsError,
-    TResult Function()? bannerLoading,
-    TResult Function(T data)? bannerSuccess,
-    TResult Function(String error)? bannerError,
-    required TResult orElse(),
-  }) {
-    if (bannerLoading != null) {
-      return bannerLoading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProductsLoading<T> value) productsLoading,
-    required TResult Function(ProductsSuccess<T> value) productsSuccess,
-    required TResult Function(ProductsError<T> value) productsError,
-    required TResult Function(BannerLoading<T> value) bannerLoading,
-    required TResult Function(BannerSuccess<T> value) bannerSuccess,
-    required TResult Function(BannerError<T> value) bannerError,
-  }) {
-    return bannerLoading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProductsLoading<T> value)? productsLoading,
-    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult? Function(ProductsError<T> value)? productsError,
-    TResult? Function(BannerLoading<T> value)? bannerLoading,
-    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult? Function(BannerError<T> value)? bannerError,
-  }) {
-    return bannerLoading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProductsLoading<T> value)? productsLoading,
-    TResult Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult Function(ProductsError<T> value)? productsError,
-    TResult Function(BannerLoading<T> value)? bannerLoading,
-    TResult Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult Function(BannerError<T> value)? bannerError,
-    required TResult orElse(),
-  }) {
-    if (bannerLoading != null) {
-      return bannerLoading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class BannerLoading<T> implements ProductsState<T> {
-  const factory BannerLoading() = _$BannerLoadingImpl<T>;
-}
-
-/// @nodoc
-abstract class _$$BannerSuccessImplCopyWith<T, $Res> {
-  factory _$$BannerSuccessImplCopyWith(_$BannerSuccessImpl<T> value,
-          $Res Function(_$BannerSuccessImpl<T>) then) =
-      __$$BannerSuccessImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({T data});
-}
-
-/// @nodoc
-class __$$BannerSuccessImplCopyWithImpl<T, $Res>
-    extends _$ProductsStateCopyWithImpl<T, $Res, _$BannerSuccessImpl<T>>
-    implements _$$BannerSuccessImplCopyWith<T, $Res> {
-  __$$BannerSuccessImplCopyWithImpl(_$BannerSuccessImpl<T> _value,
-      $Res Function(_$BannerSuccessImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ProductsState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-  }) {
-    return _then(_$BannerSuccessImpl<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$BannerSuccessImpl<T> implements BannerSuccess<T> {
-  const _$BannerSuccessImpl(this.data);
-
-  @override
-  final T data;
-
-  @override
-  String toString() {
-    return 'ProductsState<$T>.bannerSuccess(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BannerSuccessImpl<T> &&
-            const DeepCollectionEquality().equals(other.data, data));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
-
-  /// Create a copy of ProductsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BannerSuccessImplCopyWith<T, _$BannerSuccessImpl<T>> get copyWith =>
-      __$$BannerSuccessImplCopyWithImpl<T, _$BannerSuccessImpl<T>>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() productsLoading,
-    required TResult Function(T data) productsSuccess,
-    required TResult Function(String error) productsError,
-    required TResult Function() bannerLoading,
-    required TResult Function(T data) bannerSuccess,
-    required TResult Function(String error) bannerError,
-  }) {
-    return bannerSuccess(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? productsLoading,
-    TResult? Function(T data)? productsSuccess,
-    TResult? Function(String error)? productsError,
-    TResult? Function()? bannerLoading,
-    TResult? Function(T data)? bannerSuccess,
-    TResult? Function(String error)? bannerError,
-  }) {
-    return bannerSuccess?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? productsLoading,
-    TResult Function(T data)? productsSuccess,
-    TResult Function(String error)? productsError,
-    TResult Function()? bannerLoading,
-    TResult Function(T data)? bannerSuccess,
-    TResult Function(String error)? bannerError,
-    required TResult orElse(),
-  }) {
-    if (bannerSuccess != null) {
-      return bannerSuccess(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProductsLoading<T> value) productsLoading,
-    required TResult Function(ProductsSuccess<T> value) productsSuccess,
-    required TResult Function(ProductsError<T> value) productsError,
-    required TResult Function(BannerLoading<T> value) bannerLoading,
-    required TResult Function(BannerSuccess<T> value) bannerSuccess,
-    required TResult Function(BannerError<T> value) bannerError,
-  }) {
-    return bannerSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProductsLoading<T> value)? productsLoading,
-    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult? Function(ProductsError<T> value)? productsError,
-    TResult? Function(BannerLoading<T> value)? bannerLoading,
-    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult? Function(BannerError<T> value)? bannerError,
-  }) {
-    return bannerSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProductsLoading<T> value)? productsLoading,
-    TResult Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult Function(ProductsError<T> value)? productsError,
-    TResult Function(BannerLoading<T> value)? bannerLoading,
-    TResult Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult Function(BannerError<T> value)? bannerError,
-    required TResult orElse(),
-  }) {
-    if (bannerSuccess != null) {
-      return bannerSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class BannerSuccess<T> implements ProductsState<T> {
-  const factory BannerSuccess(final T data) = _$BannerSuccessImpl<T>;
-
-  T get data;
-
-  /// Create a copy of ProductsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BannerSuccessImplCopyWith<T, _$BannerSuccessImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$BannerErrorImplCopyWith<T, $Res> {
-  factory _$$BannerErrorImplCopyWith(_$BannerErrorImpl<T> value,
-          $Res Function(_$BannerErrorImpl<T>) then) =
-      __$$BannerErrorImplCopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({String error});
-}
-
-/// @nodoc
-class __$$BannerErrorImplCopyWithImpl<T, $Res>
-    extends _$ProductsStateCopyWithImpl<T, $Res, _$BannerErrorImpl<T>>
-    implements _$$BannerErrorImplCopyWith<T, $Res> {
-  __$$BannerErrorImplCopyWithImpl(
-      _$BannerErrorImpl<T> _value, $Res Function(_$BannerErrorImpl<T>) _then)
-      : super(_value, _then);
-
-  /// Create a copy of ProductsState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? error = null,
-  }) {
-    return _then(_$BannerErrorImpl<T>(
-      error: null == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$BannerErrorImpl<T> implements BannerError<T> {
-  const _$BannerErrorImpl({required this.error});
-
-  @override
-  final String error;
-
-  @override
-  String toString() {
-    return 'ProductsState<$T>.bannerError(error: $error)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$BannerErrorImpl<T> &&
-            (identical(other.error, error) || other.error == error));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, error);
-
-  /// Create a copy of ProductsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$BannerErrorImplCopyWith<T, _$BannerErrorImpl<T>> get copyWith =>
-      __$$BannerErrorImplCopyWithImpl<T, _$BannerErrorImpl<T>>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() productsLoading,
-    required TResult Function(T data) productsSuccess,
-    required TResult Function(String error) productsError,
-    required TResult Function() bannerLoading,
-    required TResult Function(T data) bannerSuccess,
-    required TResult Function(String error) bannerError,
-  }) {
-    return bannerError(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? productsLoading,
-    TResult? Function(T data)? productsSuccess,
-    TResult? Function(String error)? productsError,
-    TResult? Function()? bannerLoading,
-    TResult? Function(T data)? bannerSuccess,
-    TResult? Function(String error)? bannerError,
-  }) {
-    return bannerError?.call(error);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? productsLoading,
-    TResult Function(T data)? productsSuccess,
-    TResult Function(String error)? productsError,
-    TResult Function()? bannerLoading,
-    TResult Function(T data)? bannerSuccess,
-    TResult Function(String error)? bannerError,
-    required TResult orElse(),
-  }) {
-    if (bannerError != null) {
-      return bannerError(error);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(ProductsLoading<T> value) productsLoading,
-    required TResult Function(ProductsSuccess<T> value) productsSuccess,
-    required TResult Function(ProductsError<T> value) productsError,
-    required TResult Function(BannerLoading<T> value) bannerLoading,
-    required TResult Function(BannerSuccess<T> value) bannerSuccess,
-    required TResult Function(BannerError<T> value) bannerError,
-  }) {
-    return bannerError(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(ProductsLoading<T> value)? productsLoading,
-    TResult? Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult? Function(ProductsError<T> value)? productsError,
-    TResult? Function(BannerLoading<T> value)? bannerLoading,
-    TResult? Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult? Function(BannerError<T> value)? bannerError,
-  }) {
-    return bannerError?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(ProductsLoading<T> value)? productsLoading,
-    TResult Function(ProductsSuccess<T> value)? productsSuccess,
-    TResult Function(ProductsError<T> value)? productsError,
-    TResult Function(BannerLoading<T> value)? bannerLoading,
-    TResult Function(BannerSuccess<T> value)? bannerSuccess,
-    TResult Function(BannerError<T> value)? bannerError,
-    required TResult orElse(),
-  }) {
-    if (bannerError != null) {
-      return bannerError(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class BannerError<T> implements ProductsState<T> {
-  const factory BannerError({required final String error}) =
-      _$BannerErrorImpl<T>;
-
-  String get error;
-
-  /// Create a copy of ProductsState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BannerErrorImplCopyWith<T, _$BannerErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

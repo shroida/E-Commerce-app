@@ -9,10 +9,10 @@ class ProductModel {
   List<String>? images;
 
   ProductModel.fromJson({required Map<String, dynamic> data}) {
-    id = data['id'];
-    price = data['price'];
-    oldPrice = data['old_price'];
-    discount = data['discount'];
+    id = data['id']?.toInt();
+    price = (data['price'] is double ? data['price'].toInt() : data['price']) as int?;
+    oldPrice = (data['old_price'] is double ? data['old_price'].toInt() : data['old_price']) as int?;
+    discount = (data['discount'] is double ? data['discount'].toInt() : data['discount']) as int?;
     mainImage = data['image']?.toString();
     name = data['name']?.toString();
     description = data['description']?.toString();

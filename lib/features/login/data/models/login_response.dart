@@ -21,10 +21,10 @@ class LoginResponse {
 @JsonSerializable()
 class UserData {
   int? id;
-  String? name; // Change to nullable
-  String? email; // Change to nullable
-  String? phone; // Change to nullable
-  String? token; // Change to nullable
+  String? name;
+  String? email;
+  String? phone;
+  String? token;
 
   UserData({
     this.id,

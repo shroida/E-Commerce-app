@@ -11,46 +11,31 @@ class ProductsCubit extends Cubit<ProductsState> {
 
   Dio dio = DioFactory.getDio();
 
-  Future<List<BannerModel>> getBanners() async {
-    emit(const ProductsState.bannerLoading());
+  Future<void> fetchBannersAndProducts() async {
+    emit(const ProductsState.loading());
     try {
       final response =
           await dio.get(ApiConstants.apiBaseUrl + ApiConstants.home);
       if (response.statusCode == 200) {
-        final List<dynamic> data = response.data['data']['banners'];
-        final banners =
-            data.map((banner) => BannerModel.fromJson(data: banner)).toList();
-        emit(ProductsState.bannerSuccess(banners));
-        return banners;
-      } else {
-        emit(const ProductsState.bannerError(error: 'Failed to load banners'));
-        return [];
-      }
-    } catch (e) {
-      emit(ProductsState.bannerError(error: 'An error occurred: $e'));
-      return [];
-    }
-  }
+        // Parse Banners
+        final List<dynamic> bannersData = response.data['data']['banners'];
+        final banners = bannersData
+            .map((banner) => BannerModel.fromJson(data: banner))
+            .toList();
 
-  Future<List<ProductModel>> getProdutsList() async {
-    emit(const ProductsState.productsLoading());
-    try {
-      final response =
-          await dio.get(ApiConstants.apiBaseUrl + ApiConstants.home);
-      if (response.statusCode == 200) {
-        final List<dynamic> data = response.data['data']['products'];
-        final products =
-            data.map((banner) => ProductModel.fromJson(data: banner)).toList();
-        emit(ProductsState.productsSuccess(products));
-        return products;
+        // Parse Products
+        final List<dynamic> productsData = response.data['data']['products'];
+        final products = productsData
+            .map((product) => ProductModel.fromJson(data: product))
+            .toList();
+
+        emit(ProductsState.success(banners: banners, products: products));
       } else {
-        emit(
-            const ProductsState.productsError(error: 'Failed to load banners'));
-        return [];
+        emit(const ProductsState.error(
+            message: 'Failed to load banners and products'));
       }
     } catch (e) {
-      emit(ProductsState.productsError(error: 'An error occurred: $e'));
-      return [];
+      emit(ProductsState.error(message: 'An error occurred: $e'));
     }
   }
 }

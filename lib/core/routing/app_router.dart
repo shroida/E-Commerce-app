@@ -38,7 +38,7 @@ class AppRouter {
       GoRoute(
         path: Routes.home,
         builder: (context, state) => BlocProvider(
-          create: (context) => ProductsCubit()..getBanners(),
+          create: (context) => ProductsCubit(),
           child: const HomeScreen(),
         ),
       ),
