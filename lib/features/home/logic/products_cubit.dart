@@ -9,13 +9,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ProductsCubit extends Cubit<ProductsState> {
   ProductsCubit() : super(const ProductsState.initial());
 
-  Dio dio = DioFactory.getDio();
+  final Dio dio = DioFactory.getDio();
 
   Future<void> fetchBannersAndProducts() async {
     emit(const ProductsState.loading());
     try {
-      final response =
-          await dio.get(ApiConstants.apiBaseUrl + ApiConstants.home);
+      final response = await dio.get(
+        ApiConstants.apiBaseUrl + ApiConstants.home,
+      );
       if (response.statusCode == 200) {
         // Parse Banners
         final List<dynamic> bannersData = response.data['data']['banners'];

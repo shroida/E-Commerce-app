@@ -21,7 +21,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    _fetchData();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _fetchData());
   }
 
   Future<void> _fetchData() async {
@@ -45,43 +45,45 @@ class _HomeViewState extends State<HomeView> {
       },
       builder: (context, state) {
         return SafeArea(
-          child: banners.isEmpty && products.isEmpty
-              ? const Center(child: Text("No data available"))
-              : Column(
-                  children: [
-                    BannerImages(banners: banners),
-                    const SizedBox(height:20),
-                    Expanded(
-                      child: Container(
-                        child: products.isNotEmpty
-                            ? SingleChildScrollView(
-                              child: GridView.builder(
-                                  shrinkWrap:
-                                      true, // Ensures it fits in scrollable views
-                                  physics:
-                                      const NeverScrollableScrollPhysics(), // Use outer scroll if nested
-                                  gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                    crossAxisSpacing:
-                                        8.0, // Horizontal space between items
-                                    mainAxisSpacing:
-                                        8.0, // Vertical space between items
-                                    childAspectRatio:
-                                        0.75, // Adjust aspect ratio for item dimensions
-                                  ),
-                                  itemCount: products.length,
-                                  itemBuilder: (context, index) {
-                                    return ProductCard(
-                                        productModel: products[index]);
-                                  },
-                                ),
-                            )
-                            : SizedBox(),
-                      ),
+          child: state is ProductsLoading
+              ? const Center(child: CircularProgressIndicator())
+              : (banners.isEmpty && products.isEmpty)
+                  ? const Center(child: Text("No data available"))
+                  : Column(
+                      children: [
+                        BannerImages(banners: banners),
+                        const SizedBox(height: 20),
+                        Expanded(
+                          child: Container(
+                            child: products.isNotEmpty
+                                ? SingleChildScrollView(
+                                    child: GridView.builder(
+                                      shrinkWrap:
+                                          true, // Ensures it fits in scrollable views
+                                      physics:
+                                          const NeverScrollableScrollPhysics(), // Use outer scroll if nested
+                                      gridDelegate:
+                                          const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 2,
+                                        crossAxisSpacing:
+                                            8.0, // Horizontal space between items
+                                        mainAxisSpacing:
+                                            8.0, // Vertical space between items
+                                        childAspectRatio:
+                                            0.75, // Adjust aspect ratio for item dimensions
+                                      ),
+                                      itemCount: products.length,
+                                      itemBuilder: (context, index) {
+                                        return ProductCard(
+                                            productModel: products[index]);
+                                      },
+                                    ),
+                                  )
+                                : const SizedBox(),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
         );
       },
     );
