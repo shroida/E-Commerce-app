@@ -1,10 +1,9 @@
-import 'package:e_commerce_app/core/theming/app_styles.dart';
-import 'package:e_commerce_app/core/theming/colors_manager.dart';
 import 'package:e_commerce_app/features/home/data/model/banner_model.dart';
 import 'package:e_commerce_app/features/home/data/model/product_model.dart';
 import 'package:e_commerce_app/features/home/logic/products_cubit.dart';
 import 'package:e_commerce_app/features/home/logic/products_state.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/banners_images.dart';
+import 'package:e_commerce_app/features/home/ui/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
