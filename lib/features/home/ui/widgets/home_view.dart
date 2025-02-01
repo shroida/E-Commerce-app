@@ -50,14 +50,33 @@ class _HomeViewState extends State<HomeView> {
               : Column(
                   children: [
                     BannerImages(banners: banners),
-                    const SizedBox(height: 10),
+                    const SizedBox(height:20),
                     Expanded(
                       child: Container(
-                        color: Colors.amber,
                         child: products.isNotEmpty
-                            ? ProductCard(
-                                productModel: products.last,
-                              )
+                            ? SingleChildScrollView(
+                              child: GridView.builder(
+                                  shrinkWrap:
+                                      true, // Ensures it fits in scrollable views
+                                  physics:
+                                      const NeverScrollableScrollPhysics(), // Use outer scroll if nested
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                    crossAxisSpacing:
+                                        8.0, // Horizontal space between items
+                                    mainAxisSpacing:
+                                        8.0, // Vertical space between items
+                                    childAspectRatio:
+                                        0.75, // Adjust aspect ratio for item dimensions
+                                  ),
+                                  itemCount: products.length,
+                                  itemBuilder: (context, index) {
+                                    return ProductCard(
+                                        productModel: products[index]);
+                                  },
+                                ),
+                            )
                             : SizedBox(),
                       ),
                     ),
