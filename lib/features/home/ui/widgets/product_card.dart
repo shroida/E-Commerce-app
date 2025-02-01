@@ -83,21 +83,7 @@ class ProductCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   // Buy Now Button
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: ColorsManager.secondaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                    ),
-                    child: Text(
-                      'Buy Now',
-                      style: AppStyles.white16SemiBold,
-                    ),
-                  ),
+                  BuyNowButton(),
                 ],
               ),
             ),
