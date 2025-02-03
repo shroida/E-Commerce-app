@@ -20,8 +20,8 @@ mixin _$ProductsState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<BannerModel> banners, List<ProductModel> products)
+    required TResult Function(List<BannerModel> banners,
+            List<ProductModel> products, List<CategoryModel> categories)
         success,
     required TResult Function(String message) error,
   }) =>
@@ -30,7 +30,8 @@ mixin _$ProductsState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult? Function(String message)? error,
   }) =>
@@ -39,7 +40,8 @@ mixin _$ProductsState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -136,8 +138,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<BannerModel> banners, List<ProductModel> products)
+    required TResult Function(List<BannerModel> banners,
+            List<ProductModel> products, List<CategoryModel> categories)
         success,
     required TResult Function(String message) error,
   }) {
@@ -149,7 +151,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -161,7 +164,8 @@ class _$InitialImpl<T> implements _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -257,8 +261,8 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<BannerModel> banners, List<ProductModel> products)
+    required TResult Function(List<BannerModel> banners,
+            List<ProductModel> products, List<CategoryModel> categories)
         success,
     required TResult Function(String message) error,
   }) {
@@ -270,7 +274,8 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -282,7 +287,8 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -341,7 +347,10 @@ abstract class _$$ProductsSuccessImplCopyWith<T, $Res> {
           $Res Function(_$ProductsSuccessImpl<T>) then) =
       __$$ProductsSuccessImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({List<BannerModel> banners, List<ProductModel> products});
+  $Res call(
+      {List<BannerModel> banners,
+      List<ProductModel> products,
+      List<CategoryModel> categories});
 }
 
 /// @nodoc
@@ -359,6 +368,7 @@ class __$$ProductsSuccessImplCopyWithImpl<T, $Res>
   $Res call({
     Object? banners = null,
     Object? products = null,
+    Object? categories = null,
   }) {
     return _then(_$ProductsSuccessImpl<T>(
       banners: null == banners
@@ -369,6 +379,10 @@ class __$$ProductsSuccessImplCopyWithImpl<T, $Res>
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
               as List<ProductModel>,
+      categories: null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<CategoryModel>,
     ));
   }
 }
@@ -378,9 +392,11 @@ class __$$ProductsSuccessImplCopyWithImpl<T, $Res>
 class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
   const _$ProductsSuccessImpl(
       {required final List<BannerModel> banners,
-      required final List<ProductModel> products})
+      required final List<ProductModel> products,
+      required final List<CategoryModel> categories})
       : _banners = banners,
-        _products = products;
+        _products = products,
+        _categories = categories;
 
   final List<BannerModel> _banners;
   @override
@@ -398,9 +414,17 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     return EqualUnmodifiableListView(_products);
   }
 
+  final List<CategoryModel> _categories;
+  @override
+  List<CategoryModel> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
+
   @override
   String toString() {
-    return 'ProductsState<$T>.success(banners: $banners, products: $products)';
+    return 'ProductsState<$T>.success(banners: $banners, products: $products, categories: $categories)';
   }
 
   @override
@@ -409,14 +433,17 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
         (other.runtimeType == runtimeType &&
             other is _$ProductsSuccessImpl<T> &&
             const DeepCollectionEquality().equals(other._banners, _banners) &&
-            const DeepCollectionEquality().equals(other._products, _products));
+            const DeepCollectionEquality().equals(other._products, _products) &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_banners),
-      const DeepCollectionEquality().hash(_products));
+      const DeepCollectionEquality().hash(_products),
+      const DeepCollectionEquality().hash(_categories));
 
   /// Create a copy of ProductsState
   /// with the given fields replaced by the non-null parameter values.
@@ -432,12 +459,12 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<BannerModel> banners, List<ProductModel> products)
+    required TResult Function(List<BannerModel> banners,
+            List<ProductModel> products, List<CategoryModel> categories)
         success,
     required TResult Function(String message) error,
   }) {
-    return success(banners, products);
+    return success(banners, products, categories);
   }
 
   @override
@@ -445,11 +472,12 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult? Function(String message)? error,
   }) {
-    return success?.call(banners, products);
+    return success?.call(banners, products, categories);
   }
 
   @override
@@ -457,13 +485,14 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(banners, products);
+      return success(banners, products, categories);
     }
     return orElse();
   }
@@ -508,11 +537,14 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
 
 abstract class ProductsSuccess<T> implements ProductsState<T> {
   const factory ProductsSuccess(
-      {required final List<BannerModel> banners,
-      required final List<ProductModel> products}) = _$ProductsSuccessImpl<T>;
+          {required final List<BannerModel> banners,
+          required final List<ProductModel> products,
+          required final List<CategoryModel> categories}) =
+      _$ProductsSuccessImpl<T>;
 
   List<BannerModel> get banners;
   List<ProductModel> get products;
+  List<CategoryModel> get categories;
 
   /// Create a copy of ProductsState
   /// with the given fields replaced by the non-null parameter values.
@@ -592,8 +624,8 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<BannerModel> banners, List<ProductModel> products)
+    required TResult Function(List<BannerModel> banners,
+            List<ProductModel> products, List<CategoryModel> categories)
         success,
     required TResult Function(String message) error,
   }) {
@@ -605,7 +637,8 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -617,7 +650,8 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<BannerModel> banners, List<ProductModel> products)?
+    TResult Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),

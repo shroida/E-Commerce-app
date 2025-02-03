@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:e_commerce_app/core/networking/api_constants.dart';
 import 'package:e_commerce_app/core/networking/dio_factory.dart';
 import 'package:e_commerce_app/features/home/data/model/banner_model.dart';
+import 'package:e_commerce_app/features/home/data/model/category_model.dart';
 import 'package:e_commerce_app/features/home/data/model/product_model.dart';
 import 'package:e_commerce_app/features/home/logic/products_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,12 +26,20 @@ class ProductsCubit extends Cubit<ProductsState> {
             .toList();
 
         // Parse Products
-        final List<dynamic> productsData = response.data['data']['products'];
+        final List<dynamic> productsData =
+            response.data['data']['data']['products'];
         final products = productsData
             .map((product) => ProductModel.fromJson(data: product))
             .toList();
+        // Parse categories
+        final List<dynamic> categoriesData =
+            response.data['data']['categories'];
+        final categories = categoriesData
+            .map((category) => CategoryModel.fromJson(category))
+            .toList();
 
-        emit(ProductsState.success(banners: banners, products: products));
+        emit(ProductsState.success(
+            banners: banners, products: products, categories: categories));
       } else {
         emit(const ProductsState.error(
             message: 'Failed to load banners and products'));
