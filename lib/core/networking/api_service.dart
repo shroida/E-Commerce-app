@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:e_commerce_app/core/networking/api_constants.dart';
+import 'package:e_commerce_app/features/home/data/model/home_response.dart';
 import 'package:e_commerce_app/features/login/data/models/login_request.dart';
 import 'package:e_commerce_app/features/login/data/models/login_response.dart';
 import 'package:e_commerce_app/features/profile/data/model/profile_response.dart';
@@ -27,11 +28,11 @@ abstract class ApiService {
     @Header('lang') String lang,
   );
   @GET(ApiConstants.home)
-  Future<ProfileResponse> products(
+  Future<HomeResponse> products(
     @Header('lang') String lang,
   );
   @GET(ApiConstants.home)
-  Future<ProfileResponse> banners(
+  Future<HomeResponse> banners(
     @Header('lang') String lang,
   );
 }
