@@ -88,13 +88,11 @@ class _HomeViewState extends State<HomeView> {
                             },
                           ),
                           // List of categories
-                          if (categories.isNotEmpty)
-                            CategoriesRow(categories: categories),
+                          CategoriesRow(categories: categories),
                           const SizedBox(height: 20),
 
                           // Product Grid
-                          if (products.isNotEmpty)
-                            ProductsGrid(products: filteredProducts),
+                          ProductsGrid(products: filteredProducts),
                         ],
                       ),
                     ),

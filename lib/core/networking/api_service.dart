@@ -26,4 +26,12 @@ abstract class ApiService {
     @Header('Authorization') String token,
     @Header('lang') String lang,
   );
+  @GET(ApiConstants.home)
+  Future<ProfileResponse> products(
+    @Header('lang') String lang,
+  );
+  @GET(ApiConstants.home)
+  Future<ProfileResponse> banners(
+    @Header('lang') String lang,
+  );
 }
