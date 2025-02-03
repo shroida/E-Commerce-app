@@ -5,7 +5,7 @@ import 'package:e_commerce_app/features/home/logic/products_cubit.dart';
 import 'package:e_commerce_app/features/home/logic/products_state.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/banners_images.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/categories_row.dart';
-import 'package:e_commerce_app/features/home/ui/widgets/product_card.dart';
+import 'package:e_commerce_app/features/home/ui/widgets/products_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -66,22 +66,7 @@ class _HomeViewState extends State<HomeView> {
 
                           // Product Grid
                           if (products.isNotEmpty)
-                            GridView.builder(
-                              shrinkWrap: true,
-                              physics: const NeverScrollableScrollPhysics(),
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 8.0,
-                                mainAxisSpacing: 8.0,
-                                childAspectRatio: 0.75,
-                              ),
-                              itemCount: products.length,
-                              itemBuilder: (context, index) {
-                                return ProductCard(
-                                    productModel: products[index]);
-                              },
-                            ),
+                            ProductsGrid(products: products),
                         ],
                       ),
                     ),
@@ -90,4 +75,3 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
-
