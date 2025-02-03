@@ -11,6 +11,7 @@ class ProductsCubit extends Cubit<ProductsState> {
   ProductsCubit() : super(const ProductsState.initial());
 
   final Dio dio = DioFactory.getDio();
+  List<ProductModel> filteredProducts = [];
 
   Future<void> fetchBannersAndProducts() async {
     emit(const ProductsState.loading());
@@ -51,11 +52,10 @@ class ProductsCubit extends Cubit<ProductsState> {
     }
   }
 
-  void filterProductsSearch(List<ProductModel> products,
-      List<ProductModel> filterdProducts, String searchProduct) {
-    filterdProducts = products
-        .where((prod) =>
-            prod.name!.toLowerCase().startsWith(searchProduct.toLowerCase()))
+ void filterProductsSearch(List<ProductModel> products, String searchProduct) {
+    filteredProducts = products
+        .where((prod) => prod.name?.toLowerCase().contains(searchProduct.toLowerCase()) ?? false)
         .toList();
+    emit(ProductsState.search(filteredProducts: filteredProducts));
   }
 }

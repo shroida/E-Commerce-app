@@ -6,6 +6,7 @@ import 'package:e_commerce_app/features/home/logic/products_state.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/banners_images.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/categories_row.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/products_grid.dart';
+import 'package:e_commerce_app/features/home/ui/widgets/search_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
       debugPrint('Error fetching data: $e');
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProductsCubit, ProductsState>(
@@ -44,8 +45,12 @@ class _HomeViewState extends State<HomeView> {
           banners = state.banners;
           products = state.products;
           categories = state.categories;
+          filteredProducts = products;
         } else if (state is ProductsError) {
           debugPrint(state.message);
+        } else if (state is ProductsSearch) {
+          filteredProducts = state
+              .filteredProducts;
         }
       },
       builder: (context, state) {
@@ -58,6 +63,14 @@ class _HomeViewState extends State<HomeView> {
                       child: Column(
                         children: [
                           BannerImages(banners: banners),
+                          const SizedBox(height: 20),
+                          AwesomeSearchField(
+                            onChanged: (val) {
+                              context
+                                  .read<ProductsCubit>()
+                                  .filterProductsSearch(products, val);
+                            },
+                          ),
                           // List of categories
                           if (categories.isNotEmpty)
                             CategoriesRow(categories: categories),
@@ -65,12 +78,12 @@ class _HomeViewState extends State<HomeView> {
 
                           // Product Grid
                           if (products.isNotEmpty)
-                            ProductsGrid(products: products),
+                            ProductsGrid(products: filteredProducts),
                         ],
                       ),
                     ),
         );
       },
-    ); 
+    );
   }
 }

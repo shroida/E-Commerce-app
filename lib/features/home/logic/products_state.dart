@@ -17,5 +17,6 @@ class ProductsState<T> with _$ProductsState<T> {
     required List<CategoryModel> categories,
   }) = ProductsSuccess;
 
+  const factory ProductsState.search({required List<ProductModel> filteredProducts}) = ProductsSearch;
   const factory ProductsState.error({required String message}) = ProductsError;
 }

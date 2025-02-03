@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AwesomeSearchField extends StatefulWidget {
-  final String hintText;
   final ValueChanged<String>? onChanged;
 
   const AwesomeSearchField({
     super.key,
-    this.hintText = "Search...",
     this.onChanged,
   });
 
@@ -43,7 +41,7 @@ class _AwesomeSearchFieldState extends State<AwesomeSearchField> {
           controller: _controller,
           onChanged: widget.onChanged,
           decoration: InputDecoration(
-            hintText: widget.hintText,
+            hintText:'Search ...',
             filled: true,
             fillColor: Colors.grey.shade200,
             prefixIcon: const Icon(Icons.search),

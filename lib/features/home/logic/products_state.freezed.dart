@@ -23,6 +23,7 @@ mixin _$ProductsState<T> {
     required TResult Function(List<BannerModel> banners,
             List<ProductModel> products, List<CategoryModel> categories)
         success,
+    required TResult Function(List<ProductModel> filteredProducts) search,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -33,6 +34,7 @@ mixin _$ProductsState<T> {
     TResult? Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult? Function(List<ProductModel> filteredProducts)? search,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +45,7 @@ mixin _$ProductsState<T> {
     TResult Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult Function(List<ProductModel> filteredProducts)? search,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -52,6 +55,7 @@ mixin _$ProductsState<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(ProductsLoading<T> value) loading,
     required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsSearch<T> value) search,
     required TResult Function(ProductsError<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +64,7 @@ mixin _$ProductsState<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(ProductsLoading<T> value)? loading,
     TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsSearch<T> value)? search,
     TResult? Function(ProductsError<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +73,7 @@ mixin _$ProductsState<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(ProductsLoading<T> value)? loading,
     TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsSearch<T> value)? search,
     TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) =>
@@ -141,6 +147,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(List<BannerModel> banners,
             List<ProductModel> products, List<CategoryModel> categories)
         success,
+    required TResult Function(List<ProductModel> filteredProducts) search,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -154,6 +161,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult? Function(List<ProductModel> filteredProducts)? search,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -167,6 +175,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult Function(List<ProductModel> filteredProducts)? search,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -182,6 +191,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(ProductsLoading<T> value) loading,
     required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsSearch<T> value) search,
     required TResult Function(ProductsError<T> value) error,
   }) {
     return initial(this);
@@ -193,6 +203,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(ProductsLoading<T> value)? loading,
     TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsSearch<T> value)? search,
     TResult? Function(ProductsError<T> value)? error,
   }) {
     return initial?.call(this);
@@ -204,6 +215,7 @@ class _$InitialImpl<T> implements _Initial<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(ProductsLoading<T> value)? loading,
     TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsSearch<T> value)? search,
     TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) {
@@ -264,6 +276,7 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     required TResult Function(List<BannerModel> banners,
             List<ProductModel> products, List<CategoryModel> categories)
         success,
+    required TResult Function(List<ProductModel> filteredProducts) search,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -277,6 +290,7 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     TResult? Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult? Function(List<ProductModel> filteredProducts)? search,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -290,6 +304,7 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     TResult Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult Function(List<ProductModel> filteredProducts)? search,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -305,6 +320,7 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(ProductsLoading<T> value) loading,
     required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsSearch<T> value) search,
     required TResult Function(ProductsError<T> value) error,
   }) {
     return loading(this);
@@ -316,6 +332,7 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(ProductsLoading<T> value)? loading,
     TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsSearch<T> value)? search,
     TResult? Function(ProductsError<T> value)? error,
   }) {
     return loading?.call(this);
@@ -327,6 +344,7 @@ class _$ProductsLoadingImpl<T> implements ProductsLoading<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(ProductsLoading<T> value)? loading,
     TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsSearch<T> value)? search,
     TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) {
@@ -462,6 +480,7 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     required TResult Function(List<BannerModel> banners,
             List<ProductModel> products, List<CategoryModel> categories)
         success,
+    required TResult Function(List<ProductModel> filteredProducts) search,
     required TResult Function(String message) error,
   }) {
     return success(banners, products, categories);
@@ -475,6 +494,7 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     TResult? Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult? Function(List<ProductModel> filteredProducts)? search,
     TResult? Function(String message)? error,
   }) {
     return success?.call(banners, products, categories);
@@ -488,6 +508,7 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     TResult Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult Function(List<ProductModel> filteredProducts)? search,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -503,6 +524,7 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(ProductsLoading<T> value) loading,
     required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsSearch<T> value) search,
     required TResult Function(ProductsError<T> value) error,
   }) {
     return success(this);
@@ -514,6 +536,7 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(ProductsLoading<T> value)? loading,
     TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsSearch<T> value)? search,
     TResult? Function(ProductsError<T> value)? error,
   }) {
     return success?.call(this);
@@ -525,6 +548,7 @@ class _$ProductsSuccessImpl<T> implements ProductsSuccess<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(ProductsLoading<T> value)? loading,
     TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsSearch<T> value)? search,
     TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) {
@@ -550,6 +574,183 @@ abstract class ProductsSuccess<T> implements ProductsState<T> {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ProductsSuccessImplCopyWith<T, _$ProductsSuccessImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ProductsSearchImplCopyWith<T, $Res> {
+  factory _$$ProductsSearchImplCopyWith(_$ProductsSearchImpl<T> value,
+          $Res Function(_$ProductsSearchImpl<T>) then) =
+      __$$ProductsSearchImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({List<ProductModel> filteredProducts});
+}
+
+/// @nodoc
+class __$$ProductsSearchImplCopyWithImpl<T, $Res>
+    extends _$ProductsStateCopyWithImpl<T, $Res, _$ProductsSearchImpl<T>>
+    implements _$$ProductsSearchImplCopyWith<T, $Res> {
+  __$$ProductsSearchImplCopyWithImpl(_$ProductsSearchImpl<T> _value,
+      $Res Function(_$ProductsSearchImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filteredProducts = null,
+  }) {
+    return _then(_$ProductsSearchImpl<T>(
+      filteredProducts: null == filteredProducts
+          ? _value._filteredProducts
+          : filteredProducts // ignore: cast_nullable_to_non_nullable
+              as List<ProductModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ProductsSearchImpl<T> implements ProductsSearch<T> {
+  const _$ProductsSearchImpl(
+      {required final List<ProductModel> filteredProducts})
+      : _filteredProducts = filteredProducts;
+
+  final List<ProductModel> _filteredProducts;
+  @override
+  List<ProductModel> get filteredProducts {
+    if (_filteredProducts is EqualUnmodifiableListView)
+      return _filteredProducts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filteredProducts);
+  }
+
+  @override
+  String toString() {
+    return 'ProductsState<$T>.search(filteredProducts: $filteredProducts)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProductsSearchImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other._filteredProducts, _filteredProducts));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_filteredProducts));
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProductsSearchImplCopyWith<T, _$ProductsSearchImpl<T>> get copyWith =>
+      __$$ProductsSearchImplCopyWithImpl<T, _$ProductsSearchImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<BannerModel> banners,
+            List<ProductModel> products, List<CategoryModel> categories)
+        success,
+    required TResult Function(List<ProductModel> filteredProducts) search,
+    required TResult Function(String message) error,
+  }) {
+    return search(filteredProducts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
+        success,
+    TResult? Function(List<ProductModel> filteredProducts)? search,
+    TResult? Function(String message)? error,
+  }) {
+    return search?.call(filteredProducts);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<BannerModel> banners, List<ProductModel> products,
+            List<CategoryModel> categories)?
+        success,
+    TResult Function(List<ProductModel> filteredProducts)? search,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(filteredProducts);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(ProductsLoading<T> value) loading,
+    required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsSearch<T> value) search,
+    required TResult Function(ProductsError<T> value) error,
+  }) {
+    return search(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(ProductsLoading<T> value)? loading,
+    TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsSearch<T> value)? search,
+    TResult? Function(ProductsError<T> value)? error,
+  }) {
+    return search?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(ProductsLoading<T> value)? loading,
+    TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsSearch<T> value)? search,
+    TResult Function(ProductsError<T> value)? error,
+    required TResult orElse(),
+  }) {
+    if (search != null) {
+      return search(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProductsSearch<T> implements ProductsState<T> {
+  const factory ProductsSearch(
+          {required final List<ProductModel> filteredProducts}) =
+      _$ProductsSearchImpl<T>;
+
+  List<ProductModel> get filteredProducts;
+
+  /// Create a copy of ProductsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProductsSearchImplCopyWith<T, _$ProductsSearchImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -627,6 +828,7 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     required TResult Function(List<BannerModel> banners,
             List<ProductModel> products, List<CategoryModel> categories)
         success,
+    required TResult Function(List<ProductModel> filteredProducts) search,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -640,6 +842,7 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     TResult? Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult? Function(List<ProductModel> filteredProducts)? search,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -653,6 +856,7 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     TResult Function(List<BannerModel> banners, List<ProductModel> products,
             List<CategoryModel> categories)?
         success,
+    TResult Function(List<ProductModel> filteredProducts)? search,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -668,6 +872,7 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     required TResult Function(_Initial<T> value) initial,
     required TResult Function(ProductsLoading<T> value) loading,
     required TResult Function(ProductsSuccess<T> value) success,
+    required TResult Function(ProductsSearch<T> value) search,
     required TResult Function(ProductsError<T> value) error,
   }) {
     return error(this);
@@ -679,6 +884,7 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     TResult? Function(_Initial<T> value)? initial,
     TResult? Function(ProductsLoading<T> value)? loading,
     TResult? Function(ProductsSuccess<T> value)? success,
+    TResult? Function(ProductsSearch<T> value)? search,
     TResult? Function(ProductsError<T> value)? error,
   }) {
     return error?.call(this);
@@ -690,6 +896,7 @@ class _$ProductsErrorImpl<T> implements ProductsError<T> {
     TResult Function(_Initial<T> value)? initial,
     TResult Function(ProductsLoading<T> value)? loading,
     TResult Function(ProductsSuccess<T> value)? success,
+    TResult Function(ProductsSearch<T> value)? search,
     TResult Function(ProductsError<T> value)? error,
     required TResult orElse(),
   }) {
