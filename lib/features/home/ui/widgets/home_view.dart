@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/helper/constants.dart';
 import 'package:e_commerce_app/features/home/data/model/banner_model.dart';
 import 'package:e_commerce_app/features/home/data/model/category_model.dart';
 import 'package:e_commerce_app/features/home/data/model/product_model.dart';
@@ -5,6 +6,7 @@ import 'package:e_commerce_app/features/home/logic/products_cubit.dart';
 import 'package:e_commerce_app/features/home/logic/products_state.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/banners_images.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/categories_row.dart';
+import 'package:e_commerce_app/features/home/ui/widgets/languages_switcher.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/products_grid.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/search_field.dart';
 import 'package:flutter/material.dart';
@@ -31,10 +33,19 @@ class _HomeViewState extends State<HomeView> {
 
   Future<void> _fetchData() async {
     try {
-      await context.read<ProductsCubit>().fetchBannersAndProducts();
+      await context
+          .read<ProductsCubit>()
+          .fetchBannersAndProducts(language: language);
     } catch (e) {
       debugPrint('Error fetching data: $e');
     }
+  }
+
+  void _changeLanguage(String lang) {
+    setState(() {
+      language = lang;
+    });
+    _fetchData();
   }
 
   @override
@@ -49,8 +60,7 @@ class _HomeViewState extends State<HomeView> {
         } else if (state is ProductsError) {
           debugPrint(state.message);
         } else if (state is ProductsSearch) {
-          filteredProducts = state
-              .filteredProducts;
+          filteredProducts = state.filteredProducts;
         }
       },
       builder: (context, state) {
@@ -62,6 +72,12 @@ class _HomeViewState extends State<HomeView> {
                   : SingleChildScrollView(
                       child: Column(
                         children: [
+                          LanguagesSwitcher(
+                            currentLanguage: language,
+                            onLanguageChanged: _changeLanguage,
+                          ),
+
+                          const SizedBox(height: 20),
                           BannerImages(banners: banners),
                           const SizedBox(height: 20),
                           AwesomeSearchField(

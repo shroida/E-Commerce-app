@@ -13,12 +13,12 @@ class ProductsCubit extends Cubit<ProductsState> {
   final Dio dio = DioFactory.getDio();
   List<ProductModel> filteredProducts = [];
 
-  Future<void> fetchBannersAndProducts() async {
+  Future<void> fetchBannersAndProducts({String language = 'en'}) async {
     emit(const ProductsState.loading());
     try {
       final response = await dio.get(
-        ApiConstants.apiBaseUrl + ApiConstants.home,
-      );
+          ApiConstants.apiBaseUrl + ApiConstants.home,
+          options: Options(headers: {'lang': language}));
       if (response.statusCode == 200) {
         // Parse Banners
         final List<dynamic> bannersData = response.data['data']['banners'];
@@ -33,8 +33,8 @@ class ProductsCubit extends Cubit<ProductsState> {
             .toList();
         // Parse categories
         final respnoseCategories = await dio.get(
-          ApiConstants.apiBaseUrl + ApiConstants.categories,
-        );
+            ApiConstants.apiBaseUrl + ApiConstants.categories,
+            options: Options(headers: {'lang': language}));
         final List<dynamic> categoriesData =
             respnoseCategories.data['data']['data'];
         final categories = categoriesData
@@ -52,9 +52,11 @@ class ProductsCubit extends Cubit<ProductsState> {
     }
   }
 
- void filterProductsSearch(List<ProductModel> products, String searchProduct) {
+  void filterProductsSearch(List<ProductModel> products, String searchProduct) {
     filteredProducts = products
-        .where((prod) => prod.name?.toLowerCase().contains(searchProduct.toLowerCase()) ?? false)
+        .where((prod) =>
+            prod.name?.toLowerCase().contains(searchProduct.toLowerCase()) ??
+            false)
         .toList();
     emit(ProductsState.search(filteredProducts: filteredProducts));
   }
