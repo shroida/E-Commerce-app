@@ -23,15 +23,17 @@ class CategoriesRow extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 categories[index].imageUrl != null
-                    ? Image.network(
-                        categories[index].imageUrl!,
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) =>
-                            const Icon(Icons.broken_image),
+                    ? CircleAvatar(
+                        backgroundImage:
+                            NetworkImage(categories[index].imageUrl!),
+                        radius: 25, // Adjust size as needed
+                        onBackgroundImageError: (error, stackTrace) =>
+                            const Icon(Icons.broken_image, size: 50),
                       )
-                    : const Icon(Icons.image_not_supported, size: 50),
+                    : const CircleAvatar(
+                        radius: 25,
+                        child: Icon(Icons.image_not_supported, size: 30),
+                      ),
                 const SizedBox(width: 8),
                 Text(
                   categories[index].title ?? "Untitled",

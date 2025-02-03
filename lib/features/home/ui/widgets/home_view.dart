@@ -20,6 +20,7 @@ class _HomeViewState extends State<HomeView> {
   late List<BannerModel> banners = [];
   late List<ProductModel> products = [];
   late List<CategoryModel> categories = [];
+  List<ProductModel> filteredProducts = [];
 
   @override
   void initState() {
@@ -34,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
       debugPrint('Error fetching data: $e');
     }
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProductsCubit, ProductsState>(
@@ -57,11 +58,9 @@ class _HomeViewState extends State<HomeView> {
                       child: Column(
                         children: [
                           BannerImages(banners: banners),
-
                           // List of categories
                           if (categories.isNotEmpty)
                             CategoriesRow(categories: categories),
-
                           const SizedBox(height: 20),
 
                           // Product Grid
@@ -72,6 +71,6 @@ class _HomeViewState extends State<HomeView> {
                     ),
         );
       },
-    );
+    ); 
   }
 }

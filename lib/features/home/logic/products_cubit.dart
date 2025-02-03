@@ -50,4 +50,12 @@ class ProductsCubit extends Cubit<ProductsState> {
       emit(ProductsState.error(message: 'An error occurred: $e'));
     }
   }
+
+  void filterProductsSearch(List<ProductModel> products,
+      List<ProductModel> filterdProducts, String searchProduct) {
+    filterdProducts = products
+        .where((prod) =>
+            prod.name!.toLowerCase().startsWith(searchProduct.toLowerCase()))
+        .toList();
+  }
 }
