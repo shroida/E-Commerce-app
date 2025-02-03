@@ -1,8 +1,10 @@
 import 'package:e_commerce_app/features/home/data/model/banner_model.dart';
+import 'package:e_commerce_app/features/home/data/model/category_model.dart';
 import 'package:e_commerce_app/features/home/data/model/product_model.dart';
 import 'package:e_commerce_app/features/home/logic/products_cubit.dart';
 import 'package:e_commerce_app/features/home/logic/products_state.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/banners_images.dart';
+import 'package:e_commerce_app/features/home/ui/widgets/categories_row.dart';
 import 'package:e_commerce_app/features/home/ui/widgets/product_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +19,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   late List<BannerModel> banners = [];
   late List<ProductModel> products = [];
+  late List<CategoryModel> categories = [];
 
   @override
   void initState() {
@@ -39,6 +42,7 @@ class _HomeViewState extends State<HomeView> {
         if (state is ProductsSuccess) {
           banners = state.banners;
           products = state.products;
+          categories = state.categories;
         } else if (state is ProductsError) {
           debugPrint(state.message);
         }
@@ -49,43 +53,41 @@ class _HomeViewState extends State<HomeView> {
               ? const Center(child: CircularProgressIndicator())
               : (banners.isEmpty && products.isEmpty)
                   ? const Center(child: Text("No data available"))
-                  : Column(
-                      children: [
-                        BannerImages(banners: banners),
-                        const SizedBox(height: 20),
-                        Expanded(
-                          child: Container(
-                            child: products.isNotEmpty
-                                ? SingleChildScrollView(
-                                    child: GridView.builder(
-                                      shrinkWrap:
-                                          true, // Ensures it fits in scrollable views
-                                      physics:
-                                          const NeverScrollableScrollPhysics(), // Use outer scroll if nested
-                                      gridDelegate:
-                                          const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        crossAxisSpacing:
-                                            8.0, // Horizontal space between items
-                                        mainAxisSpacing:
-                                            8.0, // Vertical space between items
-                                        childAspectRatio:
-                                            0.75, // Adjust aspect ratio for item dimensions
-                                      ),
-                                      itemCount: products.length,
-                                      itemBuilder: (context, index) {
-                                        return ProductCard(
-                                            productModel: products[index]);
-                                      },
-                                    ),
-                                  )
-                                : const SizedBox(),
-                          ),
-                        ),
-                      ],
+                  : SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          BannerImages(banners: banners),
+
+                          // List of categories
+                          if (categories.isNotEmpty)
+                            CategoriesRow(categories: categories),
+
+                          const SizedBox(height: 20),
+
+                          // Product Grid
+                          if (products.isNotEmpty)
+                            GridView.builder(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 8.0,
+                                mainAxisSpacing: 8.0,
+                                childAspectRatio: 0.75,
+                              ),
+                              itemCount: products.length,
+                              itemBuilder: (context, index) {
+                                return ProductCard(
+                                    productModel: products[index]);
+                              },
+                            ),
+                        ],
+                      ),
                     ),
         );
       },
     );
   }
 }
+

@@ -26,14 +26,16 @@ class ProductsCubit extends Cubit<ProductsState> {
             .toList();
 
         // Parse Products
-        final List<dynamic> productsData =
-            response.data['data']['data']['products'];
+        final List<dynamic> productsData = response.data['data']['products'];
         final products = productsData
             .map((product) => ProductModel.fromJson(data: product))
             .toList();
         // Parse categories
+        final respnoseCategories = await dio.get(
+          ApiConstants.apiBaseUrl + ApiConstants.categories,
+        );
         final List<dynamic> categoriesData =
-            response.data['data']['categories'];
+            respnoseCategories.data['data']['data'];
         final categories = categoriesData
             .map((category) => CategoryModel.fromJson(category))
             .toList();
